@@ -9,13 +9,13 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Foundation
 
-- [ ] **FOUND-01**: App runs as SPA with client-side routing — no full page reloads
-- [ ] **FOUND-02**: Glassmorphism design system with frosted glass panels, backdrop blur, semi-transparent backgrounds
-- [ ] **FOUND-03**: Black (#000000) background with royal purple (#7851A9) accent color scheme throughout
-- [ ] **FOUND-04**: Skeleton loading states displayed on all API-fetched content before data arrives
+- [x] **FOUND-01**: App runs as SPA with client-side routing — no full page reloads
+- [x] **FOUND-02**: Glassmorphism design system with frosted glass panels, backdrop blur, semi-transparent backgrounds
+- [x] **FOUND-03**: Black (#000000) background with royal purple (#7851A9) accent color scheme throughout
+- [x] **FOUND-04**: Skeleton loading states displayed on all API-fetched content before data arrives
 - [ ] **FOUND-05**: Responsive design — mobile-first layout with desktop adaptation
 - [ ] **FOUND-06**: Docker container serving static assets via nginx, integrated with backend docker-compose
-- [ ] **FOUND-07**: Smooth page transitions between routes (fade/slide animations)
+- [x] **FOUND-07**: Smooth page transitions between routes (fade/slide animations)
 
 ### Authentication
 
@@ -138,13 +138,13 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| FOUND-01 | Phase 1 | Pending |
-| FOUND-02 | Phase 1 | Pending |
-| FOUND-03 | Phase 1 | Pending |
-| FOUND-04 | Phase 1 | Pending |
+| FOUND-01 | Phase 1 | Complete |
+| FOUND-02 | Phase 1 | Complete |
+| FOUND-03 | Phase 1 | Complete |
+| FOUND-04 | Phase 1 | Complete |
 | FOUND-05 | Phase 1 | Pending |
 | FOUND-06 | Phase 1 | Pending |
-| FOUND-07 | Phase 1 | Pending |
+| FOUND-07 | Phase 1 | Complete |
 | AUTH-01 | Phase 1 | Pending |
 | AUTH-02 | Phase 1 | Pending |
 | AUTH-03 | Phase 1 | Pending |
