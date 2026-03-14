@@ -1,7 +1,7 @@
-import type { AuthProviderProps } from 'react-oidc-context'
+import type { AuthProviderNoUserManagerProps } from 'react-oidc-context'
 import { getConfig } from '@/shared/config/env'
 
-export function getOidcConfig(): AuthProviderProps {
+export function getOidcConfig(): AuthProviderNoUserManagerProps {
   const config = getConfig()
   return {
     authority: `${config.keycloakUrl}/realms/${config.keycloakRealm}`,
@@ -10,7 +10,7 @@ export function getOidcConfig(): AuthProviderProps {
     post_logout_redirect_uri: window.location.origin,
     scope: 'openid profile',
     automaticSilentRenew: true,
-    onSigninCallback: () => {
+    onSigninCallback: (_user) => {
       // Remove OIDC query params from URL after login callback
       window.history.replaceState({}, document.title, window.location.pathname)
     },

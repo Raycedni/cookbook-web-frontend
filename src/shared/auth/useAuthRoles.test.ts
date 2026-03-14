@@ -1,7 +1,5 @@
 import { describe, it, expect, vi } from 'vitest'
 import { renderHook } from '@testing-library/react'
-import type { ReactNode } from 'react'
-import React from 'react'
 
 // Mock react-oidc-context
 const mockUseAuth = vi.fn()

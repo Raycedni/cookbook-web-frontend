@@ -56,7 +56,7 @@ describe('getOidcConfig', () => {
     const config = getOidcConfig()
 
     expect(config.onSigninCallback).toBeDefined()
-    config.onSigninCallback!()
+    config.onSigninCallback!(undefined)
 
     expect(replaceStateSpy).toHaveBeenCalledWith(
       {},
