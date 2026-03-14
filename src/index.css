@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #000000;
+  --color-accent: #7851A9;
+  --color-accent-light: #9B7BC7;
+  --color-accent-dark: #5C3D82;
+  --color-glass-bg: rgba(255, 255, 255, 0.05);
+  --color-glass-border: rgba(255, 255, 255, 0.1);
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+@utility animate-shimmer {
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+/* Route transition classes */
+.route-enter {
+  opacity: 0;
+}
+
+.route-enter-active {
+  opacity: 1;
+  transition: opacity 150ms ease-in;
+}
+
+.route-exit {
+  opacity: 1;
+}
+
+.route-exit-active {
+  opacity: 0;
+  transition: opacity 150ms ease-out;
+}
