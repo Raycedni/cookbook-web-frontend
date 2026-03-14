@@ -30,12 +30,12 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. User can log in via Keycloak redirect, remain logged in after page refresh, and log out from any page
   4. Unauthenticated users are redirected to login when accessing protected routes; admin nav items appear only for admin-role users
   5. Skeleton placeholders appear while API data loads; the app runs in Docker via docker-compose alongside the backend
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 01-01: TBD
-- [ ] 01-02: TBD
-- [ ] 01-03: TBD
+- [ ] 01-01-PLAN.md -- Project scaffold, design system, glass UI components, skeleton loading, test infrastructure
+- [ ] 01-02-PLAN.md -- Keycloak PKCE auth, responsive app shell layout, routes, API client
+- [ ] 01-03-PLAN.md -- Docker deployment (Dockerfile, nginx, entrypoint, docker-compose) and visual verification
 
 ### Phase 2: Recipe Browsing, Ratings, and Profiles
 **Goal**: Users can discover, browse, search, and read recipes with full detail views, rate recipes, manage favorites, set preferences, and browse ingredients
