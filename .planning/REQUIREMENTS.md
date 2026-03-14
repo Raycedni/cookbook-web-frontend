@@ -13,17 +13,17 @@ Requirements for initial release. Each maps to roadmap phases.
 - [x] **FOUND-02**: Glassmorphism design system with frosted glass panels, backdrop blur, semi-transparent backgrounds
 - [x] **FOUND-03**: Black (#000000) background with royal purple (#7851A9) accent color scheme throughout
 - [x] **FOUND-04**: Skeleton loading states displayed on all API-fetched content before data arrives
-- [ ] **FOUND-05**: Responsive design — mobile-first layout with desktop adaptation
+- [x] **FOUND-05**: Responsive design — mobile-first layout with desktop adaptation
 - [ ] **FOUND-06**: Docker container serving static assets via nginx, integrated with backend docker-compose
 - [x] **FOUND-07**: Smooth page transitions between routes (fade/slide animations)
 
 ### Authentication
 
-- [ ] **AUTH-01**: User can log in via Keycloak OAuth2 PKCE redirect flow
-- [ ] **AUTH-02**: User session persists across page refresh via silent token renewal
-- [ ] **AUTH-03**: User can log out from any page
-- [ ] **AUTH-04**: Protected routes redirect unauthenticated users to login
-- [ ] **AUTH-05**: User role (USER/ADMIN) is reflected in UI (admin nav items visible only to admins)
+- [x] **AUTH-01**: User can log in via Keycloak OAuth2 PKCE redirect flow
+- [x] **AUTH-02**: User session persists across page refresh via silent token renewal
+- [x] **AUTH-03**: User can log out from any page
+- [x] **AUTH-04**: Protected routes redirect unauthenticated users to login
+- [x] **AUTH-05**: User role (USER/ADMIN) is reflected in UI (admin nav items visible only to admins)
 
 ### Recipe Browsing
 
@@ -142,14 +142,14 @@ Which phases cover which requirements. Updated during roadmap creation.
 | FOUND-02 | Phase 1 | Complete |
 | FOUND-03 | Phase 1 | Complete |
 | FOUND-04 | Phase 1 | Complete |
-| FOUND-05 | Phase 1 | Pending |
+| FOUND-05 | Phase 1 | Complete |
 | FOUND-06 | Phase 1 | Pending |
 | FOUND-07 | Phase 1 | Complete |
-| AUTH-01 | Phase 1 | Pending |
-| AUTH-02 | Phase 1 | Pending |
-| AUTH-03 | Phase 1 | Pending |
-| AUTH-04 | Phase 1 | Pending |
-| AUTH-05 | Phase 1 | Pending |
+| AUTH-01 | Phase 1 | Complete |
+| AUTH-02 | Phase 1 | Complete |
+| AUTH-03 | Phase 1 | Complete |
+| AUTH-04 | Phase 1 | Complete |
+| AUTH-05 | Phase 1 | Complete |
 | BROWSE-01 | Phase 2 | Pending |
 | BROWSE-02 | Phase 2 | Pending |
 | BROWSE-03 | Phase 2 | Pending |
