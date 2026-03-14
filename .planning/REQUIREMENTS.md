@@ -1,0 +1,150 @@
+# Requirements: Cookbook Web Frontend
+
+**Defined:** 2026-03-14
+**Core Value:** Users can browse, create, and manage recipes with a fluid, visually striking experience — no page reloads, instant feedback, and a premium glass-based aesthetic.
+
+## v1 Requirements
+
+Requirements for initial release. Each maps to roadmap phases.
+
+### Foundation
+
+- [ ] **FOUND-01**: App runs as SPA with client-side routing — no full page reloads
+- [ ] **FOUND-02**: Glassmorphism design system with frosted glass panels, backdrop blur, semi-transparent backgrounds
+- [ ] **FOUND-03**: Black (#000000) background with royal purple (#7851A9) accent color scheme throughout
+- [ ] **FOUND-04**: Skeleton loading states displayed on all API-fetched content before data arrives
+- [ ] **FOUND-05**: Responsive design — mobile-first layout with desktop adaptation
+- [ ] **FOUND-06**: Docker container serving static assets via nginx, integrated with backend docker-compose
+- [ ] **FOUND-07**: Smooth page transitions between routes (fade/slide animations)
+
+### Authentication
+
+- [ ] **AUTH-01**: User can log in via Keycloak OAuth2 PKCE redirect flow
+- [ ] **AUTH-02**: User session persists across page refresh via silent token renewal
+- [ ] **AUTH-03**: User can log out from any page
+- [ ] **AUTH-04**: Protected routes redirect unauthenticated users to login
+- [ ] **AUTH-05**: User role (USER/ADMIN) is reflected in UI (admin nav items visible only to admins)
+
+### Recipe Browsing
+
+- [ ] **BROWSE-01**: User can view recipes in a card grid with hero images, title, cook time, and rating
+- [ ] **BROWSE-02**: User can search recipes by keyword with results updating dynamically
+- [ ] **BROWSE-03**: User can filter recipes by tags via hierarchical tag navigation
+- [ ] **BROWSE-04**: User can view paginated recipe lists with load-more or pagination controls
+- [ ] **BROWSE-05**: User can view a recipe detail page with hero image, ingredients, steps, metadata, and ratings
+- [ ] **BROWSE-06**: User can adjust serving count and see ingredient amounts recalculated in real-time
+- [ ] **BROWSE-07**: User can add/remove recipes from favorites via heart icon on cards and detail page
+- [ ] **BROWSE-08**: User can view their favorites list
+
+### Recipe Management
+
+- [ ] **RECIPE-01**: User can create a new recipe with title, description, servings, prep/cook times, ingredients, and steps
+- [ ] **RECIPE-02**: User can add/remove/reorder ingredients in recipe form with amount, unit, and ingredient selection
+- [ ] **RECIPE-03**: User can add/remove/reorder cooking steps in recipe form
+- [ ] **RECIPE-04**: User can upload images for a recipe with drag-and-drop and preview
+- [ ] **RECIPE-05**: User can edit their own recipes
+- [ ] **RECIPE-06**: User can delete their own recipes with confirmation
+- [ ] **RECIPE-07**: User can assign tags to recipes from available tag list
+- [ ] **RECIPE-08**: User can share a recipe via generated link (share token)
+- [ ] **RECIPE-09**: Unauthenticated user can view a shared recipe via share link
+
+### Meal Planning
+
+- [ ] **MEAL-01**: User can create a meal plan with name, date range, and participants count
+- [ ] **MEAL-02**: User can view meal plans in a calendar/weekly layout with day and meal slots
+- [ ] **MEAL-03**: User can add recipes to meal plan slots
+- [ ] **MEAL-04**: User can remove meals from a plan
+- [ ] **MEAL-05**: User can auto-generate a meal plan with preference parameters
+- [ ] **MEAL-06**: User can edit an existing meal plan
+- [ ] **MEAL-07**: User can delete a meal plan with confirmation
+
+### Shopping
+
+- [ ] **SHOP-01**: User can generate a shopping list from a meal plan
+- [ ] **SHOP-02**: Shopping list aggregates ingredients across recipes and groups by category
+- [ ] **SHOP-03**: User can check off items on the shopping list
+
+### Ratings
+
+- [ ] **RATE-01**: User can view rating summary (average scores) on recipe cards and detail page
+- [ ] **RATE-02**: User can view detailed multi-criteria rating breakdown on recipe detail page
+- [ ] **RATE-03**: User can submit a rating with scores for each active criterion
+- [ ] **RATE-04**: User can edit or delete their own rating
+
+### User Profile
+
+- [ ] **USER-01**: User can view and edit their profile (display name)
+- [ ] **USER-02**: User can set dietary/allergen preferences
+- [ ] **USER-03**: User can manage favorite ingredients
+- [ ] **USER-04**: User can hide/unhide tags from their browsing experience
+
+### Ingredients
+
+- [ ] **INGR-01**: User can browse ingredients with search
+- [ ] **INGR-02**: User can view ingredient details including nutritional info and allergens
+
+### Admin
+
+- [ ] **ADMIN-01**: Admin can view system statistics dashboard
+- [ ] **ADMIN-02**: Admin can manage users (list, search, update roles, delete)
+- [ ] **ADMIN-03**: Admin can manage blocked IPs (list, add, remove)
+- [ ] **ADMIN-04**: Admin can manage system configuration key-value pairs
+- [ ] **ADMIN-05**: Admin can manage rating criteria (create, update, delete, activate/deactivate)
+- [ ] **ADMIN-06**: Admin can manage ingredients (create, update, delete)
+- [ ] **ADMIN-07**: Admin can manage tags (create, update, delete, move, merge)
+- [ ] **ADMIN-08**: Admin can manage measurement units and conversions
+
+## v2 Requirements
+
+Deferred to future release. Tracked but not in current roadmap.
+
+### Cooking Experience
+
+- **COOK-01**: Cook mode with step-by-step guided view, large text, screen-wake
+- **COOK-02**: Integrated cooking timers per step with browser notifications
+- **COOK-03**: Ingredient checkboxes for prep tracking during cooking
+
+### Personalization
+
+- **PERS-01**: Allergen warning badges displayed on recipe cards and detail pages
+- **PERS-02**: Nutritional summary (calories, macros) per recipe aggregated from ingredients
+- **PERS-03**: Related recipe suggestions on detail page based on shared tags/ingredients
+
+### Polish
+
+- **POLISH-01**: Print-friendly recipe view with clean layout (no glass effects)
+- **POLISH-02**: "What can I cook?" filter based on available ingredients
+
+## Out of Scope
+
+| Feature | Reason |
+|---------|--------|
+| Server-side rendering | SPA only — backend handles API, frontend is static |
+| Native mobile app | Responsive web covers mobile use cases for v1 |
+| Real-time websockets | Standard REST polling sufficient for recipe app |
+| Offline / PWA mode | Online-only for v1; adds significant complexity |
+| Internationalization (i18n) | English only for v1; code structured to be i18n-friendly |
+| Social feed / activity stream | Cooking tool, not social network |
+| Recipe web scraping / URL import | Backend is source of truth; good creation form instead |
+| AI-generated recipes | Unreliable, potential allergen safety risk |
+| Gamification (badges, streaks) | Cooking is not a game; patronizing for target audience |
+| Video hosting for recipe steps | Storage/bandwidth cost; support images per step instead |
+| Infinite scroll | Breaks back-button, accessibility issues; use pagination |
+| Real-time collaborative editing | WebSocket complexity for marginal benefit |
+
+## Traceability
+
+Which phases cover which requirements. Updated during roadmap creation.
+
+| Requirement | Phase | Status |
+|-------------|-------|--------|
+| (populated by roadmapper) | | |
+
+**Coverage:**
+- v1 requirements: 48 total
+- Mapped to phases: 0
+- Unmapped: 48 ⚠️
+
+---
+*Requirements defined: 2026-03-14*
+*Last updated: 2026-03-14 after initial definition*
