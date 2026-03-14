@@ -138,13 +138,69 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| (populated by roadmapper) | | |
+| FOUND-01 | Phase 1 | Pending |
+| FOUND-02 | Phase 1 | Pending |
+| FOUND-03 | Phase 1 | Pending |
+| FOUND-04 | Phase 1 | Pending |
+| FOUND-05 | Phase 1 | Pending |
+| FOUND-06 | Phase 1 | Pending |
+| FOUND-07 | Phase 1 | Pending |
+| AUTH-01 | Phase 1 | Pending |
+| AUTH-02 | Phase 1 | Pending |
+| AUTH-03 | Phase 1 | Pending |
+| AUTH-04 | Phase 1 | Pending |
+| AUTH-05 | Phase 1 | Pending |
+| BROWSE-01 | Phase 2 | Pending |
+| BROWSE-02 | Phase 2 | Pending |
+| BROWSE-03 | Phase 2 | Pending |
+| BROWSE-04 | Phase 2 | Pending |
+| BROWSE-05 | Phase 2 | Pending |
+| BROWSE-06 | Phase 2 | Pending |
+| BROWSE-07 | Phase 2 | Pending |
+| BROWSE-08 | Phase 2 | Pending |
+| RATE-01 | Phase 2 | Pending |
+| RATE-02 | Phase 2 | Pending |
+| RATE-03 | Phase 2 | Pending |
+| RATE-04 | Phase 2 | Pending |
+| USER-01 | Phase 2 | Pending |
+| USER-02 | Phase 2 | Pending |
+| USER-03 | Phase 2 | Pending |
+| USER-04 | Phase 2 | Pending |
+| INGR-01 | Phase 2 | Pending |
+| INGR-02 | Phase 2 | Pending |
+| RECIPE-01 | Phase 3 | Pending |
+| RECIPE-02 | Phase 3 | Pending |
+| RECIPE-03 | Phase 3 | Pending |
+| RECIPE-04 | Phase 3 | Pending |
+| RECIPE-05 | Phase 3 | Pending |
+| RECIPE-06 | Phase 3 | Pending |
+| RECIPE-07 | Phase 3 | Pending |
+| RECIPE-08 | Phase 3 | Pending |
+| RECIPE-09 | Phase 3 | Pending |
+| MEAL-01 | Phase 4 | Pending |
+| MEAL-02 | Phase 4 | Pending |
+| MEAL-03 | Phase 4 | Pending |
+| MEAL-04 | Phase 4 | Pending |
+| MEAL-05 | Phase 4 | Pending |
+| MEAL-06 | Phase 4 | Pending |
+| MEAL-07 | Phase 4 | Pending |
+| SHOP-01 | Phase 4 | Pending |
+| SHOP-02 | Phase 4 | Pending |
+| SHOP-03 | Phase 4 | Pending |
+| ADMIN-01 | Phase 5 | Pending |
+| ADMIN-02 | Phase 5 | Pending |
+| ADMIN-03 | Phase 5 | Pending |
+| ADMIN-04 | Phase 5 | Pending |
+| ADMIN-05 | Phase 5 | Pending |
+| ADMIN-06 | Phase 5 | Pending |
+| ADMIN-07 | Phase 5 | Pending |
+| ADMIN-08 | Phase 5 | Pending |
 
 **Coverage:**
-- v1 requirements: 48 total
-- Mapped to phases: 0
-- Unmapped: 48 ⚠️
+- v1 requirements: 57 total
+- Mapped to phases: 57
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-03-14*
-*Last updated: 2026-03-14 after initial definition*
+*Last updated: 2026-03-14 after roadmap creation*
