@@ -14,7 +14,7 @@ Requirements for initial release. Each maps to roadmap phases.
 - [x] **FOUND-03**: Black (#000000) background with royal purple (#7851A9) accent color scheme throughout
 - [x] **FOUND-04**: Skeleton loading states displayed on all API-fetched content before data arrives
 - [x] **FOUND-05**: Responsive design — mobile-first layout with desktop adaptation
-- [ ] **FOUND-06**: Docker container serving static assets via nginx, integrated with backend docker-compose
+- [x] **FOUND-06**: Docker container serving static assets via nginx, integrated with backend docker-compose
 - [x] **FOUND-07**: Smooth page transitions between routes (fade/slide animations)
 
 ### Authentication
@@ -143,7 +143,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | FOUND-03 | Phase 1 | Complete |
 | FOUND-04 | Phase 1 | Complete |
 | FOUND-05 | Phase 1 | Complete |
-| FOUND-06 | Phase 1 | Pending |
+| FOUND-06 | Phase 1 | Complete |
 | FOUND-07 | Phase 1 | Complete |
 | AUTH-01 | Phase 1 | Complete |
 | AUTH-02 | Phase 1 | Complete |
