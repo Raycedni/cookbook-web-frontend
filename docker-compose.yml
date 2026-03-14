@@ -1,0 +1,16 @@
+services:
+  frontend:
+    build: .
+    ports:
+      - "3000:80"
+    environment:
+      - API_BASE_URL=/api/v1
+      - KEYCLOAK_URL=http://localhost:8180
+      - KEYCLOAK_REALM=cookbook
+      - KEYCLOAK_CLIENT_ID=cookbook-frontend
+    networks:
+      - cookbook-network
+
+networks:
+  cookbook-network:
+    external: true
