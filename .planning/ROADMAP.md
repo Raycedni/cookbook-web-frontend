@@ -47,12 +47,13 @@ Plans:
   3. User can open a recipe detail page showing hero image, ingredients (with serving-count scaling), steps, metadata, and multi-criteria rating breakdown
   4. User can submit/edit/delete their own rating, toggle favorites on cards and detail page, and view their favorites list
   5. User can view/edit their profile, set allergen preferences, manage favorite ingredients, hide/unhide tags, and browse ingredients with allergen info
-**Plans**: TBD
+**Plans**: 4 plans
 
 Plans:
-- [ ] 02-01: TBD
-- [ ] 02-02: TBD
-- [ ] 02-03: TBD
+- [ ] 02-01-PLAN.md -- Types, API layer, query factories, shared UI utilities (useDebounce, StarRating, EmptyState)
+- [ ] 02-02-PLAN.md -- Recipe browse page with card grid, search, tag tree sidebar, pagination, nav updates
+- [ ] 02-03-PLAN.md -- Recipe detail page with serving scaling, rating system, favorites list
+- [ ] 02-04-PLAN.md -- User profile with preferences, ingredient browsing page
 
 ### Phase 3: Recipe Management
 **Goal**: Users can create, edit, and delete their own recipes with images, tags, and shareable links
@@ -104,8 +105,8 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation and Authentication | 2/3 | In Progress|  |
-| 2. Recipe Browsing, Ratings, and Profiles | 0/3 | Not started | - |
+| 1. Foundation and Authentication | 3/3 | Complete |  |
+| 2. Recipe Browsing, Ratings, and Profiles | 0/4 | Not started | - |
 | 3. Recipe Management | 0/2 | Not started | - |
 | 4. Meal Planning and Shopping | 0/2 | Not started | - |
 | 5. Administration | 0/2 | Not started | - |
