@@ -1,16 +1,18 @@
 import { useState } from 'react'
-import { createFileRoute, Link } from '@tanstack/react-router'
-import { useQuery } from '@tanstack/react-query'
-import { ArrowLeft, ChefHat, Clock, Timer, Users } from 'lucide-react'
+import { createFileRoute, Link, useNavigate } from '@tanstack/react-router'
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
+import { ArrowLeft, ChefHat, Clock, Pencil, Share2, Timer, Trash2, Users } from 'lucide-react'
 import { GlassPanel } from '@/shared/ui/GlassPanel'
 import { Skeleton } from '@/shared/ui/Skeleton'
 import { recipeQueries } from '@/features/recipes/api/recipe-queries'
+import { deleteRecipe } from '@/features/recipes/api/recipe-api'
 import { FavoriteButton } from '@/features/favorites/ui/FavoriteButton'
 import { ServingScaler } from '@/features/recipes/ui/ServingScaler'
 import { IngredientList } from '@/features/recipes/ui/IngredientList'
 import { StepList } from '@/features/recipes/ui/StepList'
 import { RatingBreakdown } from '@/features/ratings/ui/RatingBreakdown'
 import { RatingForm } from '@/features/ratings/ui/RatingForm'
+import { ShareModal } from '@/features/recipes/ui/ShareModal'
 
 export const Route = createFileRoute('/_authenticated/recipes/$recipeId')({
   component: RecipeDetailPage,
@@ -18,8 +20,25 @@ export const Route = createFileRoute('/_authenticated/recipes/$recipeId')({
 
 function RecipeDetailPage() {
   const { recipeId } = Route.useParams()
+  const navigate = useNavigate()
+  const queryClient = useQueryClient()
   const { data: recipe, isLoading } = useQuery(recipeQueries.detail(recipeId))
   const [targetServings, setTargetServings] = useState<number | null>(null)
+  const [showShareModal, setShowShareModal] = useState(false)
+
+  const deleteMutation = useMutation({
+    mutationFn: () => deleteRecipe(recipeId),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: recipeQueries.all() })
+      navigate({ to: '/recipes' })
+    },
+  })
+
+  const handleDelete = () => {
+    if (window.confirm('Are you sure you want to delete this recipe?')) {
+      deleteMutation.mutate()
+    }
+  }
 
   if (isLoading) {
     return <RecipeDetailSkeleton />
@@ -95,6 +114,33 @@ function RecipeDetailPage() {
         </div>
       </div>
 
+      {/* Action buttons (shown for all authenticated users -- backend enforces authorization) */}
+      <div className="flex items-center gap-3">
+        <Link
+          to="/recipes/$recipeId/edit"
+          params={{ recipeId }}
+          className="inline-flex items-center gap-2 rounded-lg bg-white/10 px-4 py-2 text-sm text-white hover:bg-white/15 transition-colors"
+        >
+          <Pencil className="h-4 w-4" />
+          Edit
+        </Link>
+        <button
+          onClick={() => setShowShareModal(true)}
+          className="inline-flex items-center gap-2 rounded-lg bg-white/10 px-4 py-2 text-sm text-white hover:bg-white/15 transition-colors"
+        >
+          <Share2 className="h-4 w-4" />
+          Share
+        </button>
+        <button
+          onClick={handleDelete}
+          disabled={deleteMutation.isPending}
+          className="inline-flex items-center gap-2 rounded-lg bg-red-500/20 px-4 py-2 text-sm text-red-400 hover:bg-red-500/30 transition-colors disabled:opacity-50"
+        >
+          <Trash2 className="h-4 w-4" />
+          {deleteMutation.isPending ? 'Deleting...' : 'Delete'}
+        </button>
+      </div>
+
       {/* Two-column layout: ingredients + steps */}
       <div className="grid md:grid-cols-[1fr_2fr] gap-6">
         {/* Left column: Serving scaler + Ingredients */}
@@ -130,6 +176,11 @@ function RecipeDetailPage() {
         <RatingBreakdown recipeId={recipeId} />
         <RatingForm recipeId={recipeId} />
       </div>
+
+      {/* Share modal */}
+      {showShareModal && (
+        <ShareModal recipeId={recipeId} onClose={() => setShowShareModal(false)} />
+      )}
     </div>
   )
 }

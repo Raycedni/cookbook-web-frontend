@@ -1,7 +1,7 @@
-import type { ReactNode, ElementType } from 'react'
+import type { ReactNode, ElementType, ComponentPropsWithoutRef } from 'react'
 import { cn } from '@/shared/lib/cn'
 
-interface GlassPanelProps {
+interface GlassPanelProps extends Omit<ComponentPropsWithoutRef<'div'>, 'children'> {
   children: ReactNode
   intensity?: 'light' | 'medium' | 'heavy'
   className?: string
@@ -19,6 +19,7 @@ export function GlassPanel({
   intensity = 'medium',
   className,
   as: Component = 'div',
+  ...rest
 }: GlassPanelProps) {
   return (
     <Component
@@ -27,6 +28,7 @@ export function GlassPanel({
         intensityClasses[intensity],
         className,
       )}
+      {...rest}
     >
       {children}
     </Component>

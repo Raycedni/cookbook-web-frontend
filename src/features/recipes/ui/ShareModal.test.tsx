@@ -1,5 +1,4 @@
-import { render, screen, waitFor } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
+import { render, screen, fireEvent, waitFor, act } from '@testing-library/react'
 import { describe, expect, it, vi, beforeEach } from 'vitest'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ShareModal } from './ShareModal'
@@ -65,7 +64,9 @@ describe('ShareModal', () => {
     })
 
     const copyButton = screen.getByRole('button', { name: /copy/i })
-    await userEvent.click(copyButton)
+    await act(async () => {
+      fireEvent.click(copyButton)
+    })
 
     expect(navigator.clipboard.writeText).toHaveBeenCalledWith(
       expect.stringContaining('/recipes/share/abc123'),
@@ -85,7 +86,9 @@ describe('ShareModal', () => {
     })
 
     const copyButton = screen.getByRole('button', { name: /copy/i })
-    await userEvent.click(copyButton)
+    await act(async () => {
+      fireEvent.click(copyButton)
+    })
 
     expect(screen.getByText('Copied!')).toBeInTheDocument()
   })
@@ -95,7 +98,7 @@ describe('ShareModal', () => {
     const { onClose } = renderShareModal()
 
     const backdrop = screen.getByTestId('share-modal-backdrop')
-    await userEvent.click(backdrop)
+    fireEvent.click(backdrop)
 
     expect(onClose).toHaveBeenCalled()
   })
