@@ -85,14 +85,14 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Admin
 
-- [ ] **ADMIN-01**: Admin can view system statistics dashboard
-- [ ] **ADMIN-02**: Admin can manage users (list, search, update roles, delete)
-- [ ] **ADMIN-03**: Admin can manage blocked IPs (list, add, remove)
-- [ ] **ADMIN-04**: Admin can manage system configuration key-value pairs
-- [ ] **ADMIN-05**: Admin can manage rating criteria (create, update, delete, activate/deactivate)
-- [ ] **ADMIN-06**: Admin can manage ingredients (create, update, delete)
-- [ ] **ADMIN-07**: Admin can manage tags (create, update, delete, move, merge)
-- [ ] **ADMIN-08**: Admin can manage measurement units and conversions
+- [x] **ADMIN-01**: Admin can view system statistics dashboard
+- [x] **ADMIN-02**: Admin can manage users (list, search, update roles, delete)
+- [x] **ADMIN-03**: Admin can manage blocked IPs (list, add, remove)
+- [x] **ADMIN-04**: Admin can manage system configuration key-value pairs
+- [x] **ADMIN-05**: Admin can manage rating criteria (create, update, delete, activate/deactivate)
+- [x] **ADMIN-06**: Admin can manage ingredients (create, update, delete)
+- [x] **ADMIN-07**: Admin can manage tags (create, update, delete, move, merge)
+- [x] **ADMIN-08**: Admin can manage measurement units and conversions
 
 ## v2 Requirements
 
@@ -187,14 +187,14 @@ Which phases cover which requirements. Updated during roadmap creation.
 | SHOP-01 | Phase 4 | Complete |
 | SHOP-02 | Phase 4 | Complete |
 | SHOP-03 | Phase 4 | Complete |
-| ADMIN-01 | Phase 5 | Pending |
-| ADMIN-02 | Phase 5 | Pending |
-| ADMIN-03 | Phase 5 | Pending |
-| ADMIN-04 | Phase 5 | Pending |
-| ADMIN-05 | Phase 5 | Pending |
-| ADMIN-06 | Phase 5 | Pending |
-| ADMIN-07 | Phase 5 | Pending |
-| ADMIN-08 | Phase 5 | Pending |
+| ADMIN-01 | Phase 5 | Complete |
+| ADMIN-02 | Phase 5 | Complete |
+| ADMIN-03 | Phase 5 | Complete |
+| ADMIN-04 | Phase 5 | Complete |
+| ADMIN-05 | Phase 5 | Complete |
+| ADMIN-06 | Phase 5 | Complete |
+| ADMIN-07 | Phase 5 | Complete |
+| ADMIN-08 | Phase 5 | Complete |
 
 **Coverage:**
 - v1 requirements: 57 total
