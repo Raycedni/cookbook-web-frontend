@@ -9,6 +9,8 @@ import { FavoriteButton } from '@/features/favorites/ui/FavoriteButton'
 import { ServingScaler } from '@/features/recipes/ui/ServingScaler'
 import { IngredientList } from '@/features/recipes/ui/IngredientList'
 import { StepList } from '@/features/recipes/ui/StepList'
+import { RatingBreakdown } from '@/features/ratings/ui/RatingBreakdown'
+import { RatingForm } from '@/features/ratings/ui/RatingForm'
 
 export const Route = createFileRoute('/_authenticated/recipes/$recipeId')({
   component: RecipeDetailPage,
@@ -123,8 +125,11 @@ function RecipeDetailPage() {
         </GlassPanel>
       </div>
 
-      {/* Ratings section placeholder - filled by Task 2 */}
-      <div id="ratings-section" />
+      {/* Ratings section */}
+      <div className="grid md:grid-cols-2 gap-6">
+        <RatingBreakdown recipeId={recipeId} />
+        <RatingForm recipeId={recipeId} />
+      </div>
     </div>
   )
 }
