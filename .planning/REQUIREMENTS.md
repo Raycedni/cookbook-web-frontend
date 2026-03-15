@@ -27,14 +27,14 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Recipe Browsing
 
-- [ ] **BROWSE-01**: User can view recipes in a card grid with hero images, title, cook time, and rating
-- [ ] **BROWSE-02**: User can search recipes by keyword with results updating dynamically
+- [x] **BROWSE-01**: User can view recipes in a card grid with hero images, title, cook time, and rating
+- [x] **BROWSE-02**: User can search recipes by keyword with results updating dynamically
 - [ ] **BROWSE-03**: User can filter recipes by tags via hierarchical tag navigation
-- [ ] **BROWSE-04**: User can view paginated recipe lists with load-more or pagination controls
-- [ ] **BROWSE-05**: User can view a recipe detail page with hero image, ingredients, steps, metadata, and ratings
-- [ ] **BROWSE-06**: User can adjust serving count and see ingredient amounts recalculated in real-time
-- [ ] **BROWSE-07**: User can add/remove recipes from favorites via heart icon on cards and detail page
-- [ ] **BROWSE-08**: User can view their favorites list
+- [x] **BROWSE-04**: User can view paginated recipe lists with load-more or pagination controls
+- [x] **BROWSE-05**: User can view a recipe detail page with hero image, ingredients, steps, metadata, and ratings
+- [x] **BROWSE-06**: User can adjust serving count and see ingredient amounts recalculated in real-time
+- [x] **BROWSE-07**: User can add/remove recipes from favorites via heart icon on cards and detail page
+- [x] **BROWSE-08**: User can view their favorites list
 
 ### Recipe Management
 
@@ -66,22 +66,22 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Ratings
 
-- [ ] **RATE-01**: User can view rating summary (average scores) on recipe cards and detail page
-- [ ] **RATE-02**: User can view detailed multi-criteria rating breakdown on recipe detail page
-- [ ] **RATE-03**: User can submit a rating with scores for each active criterion
-- [ ] **RATE-04**: User can edit or delete their own rating
+- [x] **RATE-01**: User can view rating summary (average scores) on recipe cards and detail page
+- [x] **RATE-02**: User can view detailed multi-criteria rating breakdown on recipe detail page
+- [x] **RATE-03**: User can submit a rating with scores for each active criterion
+- [x] **RATE-04**: User can edit or delete their own rating
 
 ### User Profile
 
-- [ ] **USER-01**: User can view and edit their profile (display name)
-- [ ] **USER-02**: User can set dietary/allergen preferences
-- [ ] **USER-03**: User can manage favorite ingredients
-- [ ] **USER-04**: User can hide/unhide tags from their browsing experience
+- [x] **USER-01**: User can view and edit their profile (display name)
+- [x] **USER-02**: User can set dietary/allergen preferences
+- [x] **USER-03**: User can manage favorite ingredients
+- [x] **USER-04**: User can hide/unhide tags from their browsing experience
 
 ### Ingredients
 
-- [ ] **INGR-01**: User can browse ingredients with search
-- [ ] **INGR-02**: User can view ingredient details including nutritional info and allergens
+- [x] **INGR-01**: User can browse ingredients with search
+- [x] **INGR-02**: User can view ingredient details including nutritional info and allergens
 
 ### Admin
 
@@ -150,24 +150,24 @@ Which phases cover which requirements. Updated during roadmap creation.
 | AUTH-03 | Phase 1 | Complete |
 | AUTH-04 | Phase 1 | Complete |
 | AUTH-05 | Phase 1 | Complete |
-| BROWSE-01 | Phase 2 | Pending |
-| BROWSE-02 | Phase 2 | Pending |
+| BROWSE-01 | Phase 2 | Complete |
+| BROWSE-02 | Phase 2 | Complete |
 | BROWSE-03 | Phase 2 | Pending |
-| BROWSE-04 | Phase 2 | Pending |
-| BROWSE-05 | Phase 2 | Pending |
-| BROWSE-06 | Phase 2 | Pending |
-| BROWSE-07 | Phase 2 | Pending |
-| BROWSE-08 | Phase 2 | Pending |
-| RATE-01 | Phase 2 | Pending |
-| RATE-02 | Phase 2 | Pending |
-| RATE-03 | Phase 2 | Pending |
-| RATE-04 | Phase 2 | Pending |
-| USER-01 | Phase 2 | Pending |
-| USER-02 | Phase 2 | Pending |
-| USER-03 | Phase 2 | Pending |
-| USER-04 | Phase 2 | Pending |
-| INGR-01 | Phase 2 | Pending |
-| INGR-02 | Phase 2 | Pending |
+| BROWSE-04 | Phase 2 | Complete |
+| BROWSE-05 | Phase 2 | Complete |
+| BROWSE-06 | Phase 2 | Complete |
+| BROWSE-07 | Phase 2 | Complete |
+| BROWSE-08 | Phase 2 | Complete |
+| RATE-01 | Phase 2 | Complete |
+| RATE-02 | Phase 2 | Complete |
+| RATE-03 | Phase 2 | Complete |
+| RATE-04 | Phase 2 | Complete |
+| USER-01 | Phase 2 | Complete |
+| USER-02 | Phase 2 | Complete |
+| USER-03 | Phase 2 | Complete |
+| USER-04 | Phase 2 | Complete |
+| INGR-01 | Phase 2 | Complete |
+| INGR-02 | Phase 2 | Complete |
 | RECIPE-01 | Phase 3 | Pending |
 | RECIPE-02 | Phase 3 | Pending |
 | RECIPE-03 | Phase 3 | Pending |
