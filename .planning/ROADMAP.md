@@ -63,11 +63,12 @@ Plans:
   1. User can create a recipe with title, description, servings, times, ordered ingredients (with amount/unit/ingredient selection), and ordered steps
   2. User can upload images via drag-and-drop with preview, assign tags, and edit or delete their own recipes (with delete confirmation)
   3. User can generate a share link for a recipe; an unauthenticated visitor can view the recipe via that link
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 03-01: TBD
-- [ ] 03-02: TBD
+- [ ] 03-01-PLAN.md -- Types, API functions, query factories, dnd-kit install, ImageDropZone component
+- [ ] 03-02-PLAN.md -- Recipe creation wizard (2-step form with drag-and-drop ingredients/steps, image upload, tags)
+- [ ] 03-03-PLAN.md -- Edit/delete on detail page, share modal, public shared recipe route
 
 ### Phase 4: Meal Planning and Shopping
 **Goal**: Users can plan meals across a week, auto-generate plans, and produce aggregated shopping lists
@@ -107,6 +108,6 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 |-------|----------------|--------|-----------|
 | 1. Foundation and Authentication | 3/3 | Complete |  |
 | 2. Recipe Browsing, Ratings, and Profiles | 4/4 | Complete |  |
-| 3. Recipe Management | 0/2 | Not started | - |
+| 3. Recipe Management | 0/3 | Not started | - |
 | 4. Meal Planning and Shopping | 0/2 | Not started | - |
 | 5. Administration | 0/2 | Not started | - |
