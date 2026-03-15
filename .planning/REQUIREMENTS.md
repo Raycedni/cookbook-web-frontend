@@ -50,19 +50,19 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Meal Planning
 
-- [ ] **MEAL-01**: User can create a meal plan with name, date range, and participants count
-- [ ] **MEAL-02**: User can view meal plans in a calendar/weekly layout with day and meal slots
-- [ ] **MEAL-03**: User can add recipes to meal plan slots
-- [ ] **MEAL-04**: User can remove meals from a plan
-- [ ] **MEAL-05**: User can auto-generate a meal plan with preference parameters
-- [ ] **MEAL-06**: User can edit an existing meal plan
-- [ ] **MEAL-07**: User can delete a meal plan with confirmation
+- [x] **MEAL-01**: User can create a meal plan with name, date range, and participants count
+- [x] **MEAL-02**: User can view meal plans in a calendar/weekly layout with day and meal slots
+- [x] **MEAL-03**: User can add recipes to meal plan slots
+- [x] **MEAL-04**: User can remove meals from a plan
+- [x] **MEAL-05**: User can auto-generate a meal plan with preference parameters
+- [x] **MEAL-06**: User can edit an existing meal plan
+- [x] **MEAL-07**: User can delete a meal plan with confirmation
 
 ### Shopping
 
-- [ ] **SHOP-01**: User can generate a shopping list from a meal plan
-- [ ] **SHOP-02**: Shopping list aggregates ingredients across recipes and groups by category
-- [ ] **SHOP-03**: User can check off items on the shopping list
+- [x] **SHOP-01**: User can generate a shopping list from a meal plan
+- [x] **SHOP-02**: Shopping list aggregates ingredients across recipes and groups by category
+- [x] **SHOP-03**: User can check off items on the shopping list
 
 ### Ratings
 
@@ -177,16 +177,16 @@ Which phases cover which requirements. Updated during roadmap creation.
 | RECIPE-07 | Phase 3 | Complete |
 | RECIPE-08 | Phase 3 | Complete |
 | RECIPE-09 | Phase 3 | Complete |
-| MEAL-01 | Phase 4 | Pending |
-| MEAL-02 | Phase 4 | Pending |
-| MEAL-03 | Phase 4 | Pending |
-| MEAL-04 | Phase 4 | Pending |
-| MEAL-05 | Phase 4 | Pending |
-| MEAL-06 | Phase 4 | Pending |
-| MEAL-07 | Phase 4 | Pending |
-| SHOP-01 | Phase 4 | Pending |
-| SHOP-02 | Phase 4 | Pending |
-| SHOP-03 | Phase 4 | Pending |
+| MEAL-01 | Phase 4 | Complete |
+| MEAL-02 | Phase 4 | Complete |
+| MEAL-03 | Phase 4 | Complete |
+| MEAL-04 | Phase 4 | Complete |
+| MEAL-05 | Phase 4 | Complete |
+| MEAL-06 | Phase 4 | Complete |
+| MEAL-07 | Phase 4 | Complete |
+| SHOP-01 | Phase 4 | Complete |
+| SHOP-02 | Phase 4 | Complete |
+| SHOP-03 | Phase 4 | Complete |
 | ADMIN-01 | Phase 5 | Pending |
 | ADMIN-02 | Phase 5 | Pending |
 | ADMIN-03 | Phase 5 | Pending |
