@@ -1,6 +1,5 @@
 import { describe, it, expect, vi } from 'vitest'
-import { fireEvent } from '@testing-library/react'
-import { renderWithProviders, screen } from '@/test/utils'
+import { render, fireEvent, screen } from '@testing-library/react'
 import { scaleAmount, formatAmount, ServingScaler } from './ServingScaler'
 
 describe('scaleAmount', () => {
@@ -38,7 +37,7 @@ describe('formatAmount', () => {
 describe('ServingScaler', () => {
   it('renders and increments/decrements', () => {
     const onChange = vi.fn()
-    renderWithProviders(
+    render(
       <ServingScaler originalServings={4} value={4} onChange={onChange} />,
     )
 
@@ -57,7 +56,7 @@ describe('ServingScaler', () => {
 
   it('disables minus button at minimum value', () => {
     const onChange = vi.fn()
-    renderWithProviders(
+    render(
       <ServingScaler originalServings={4} value={1} onChange={onChange} />,
     )
 
