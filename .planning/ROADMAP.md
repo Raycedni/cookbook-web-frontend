@@ -96,11 +96,13 @@ Plans:
   1. Admin can view a system statistics dashboard
   2. Admin can manage users (list, search, update roles, delete) and manage blocked IPs (list, add, remove)
   3. Admin can manage system config key-value pairs, rating criteria (CRUD + activate/deactivate), ingredients, tags (with move/merge), and measurement units
-**Plans**: TBD
+**Plans**: 4 plans
 
 Plans:
-- [ ] 05-01: TBD
-- [ ] 05-02: TBD
+- [ ] 05-01-PLAN.md -- Admin types, API layer, query factory, AdminTable component, admin layout route with sidebar, route scaffolds, NavBar update
+- [ ] 05-02-PLAN.md -- Dashboard stat cards, user management, blocked IPs, system config
+- [ ] 05-03-PLAN.md -- Rating criteria with toggle, ingredient management, unit management
+- [ ] 05-04-PLAN.md -- Tag tree with drag-and-drop move, inline rename, merge modal
 
 ## Progress
 
@@ -113,4 +115,4 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 | 2. Recipe Browsing, Ratings, and Profiles | 4/4 | Complete |  |
 | 3. Recipe Management | 3/3 | Complete | 2026-03-15 |
 | 4. Meal Planning and Shopping | 5/5 | Complete   | 2026-03-15 |
-| 5. Administration | 0/2 | Not started | - |
+| 5. Administration | 0/4 | Not started | - |
