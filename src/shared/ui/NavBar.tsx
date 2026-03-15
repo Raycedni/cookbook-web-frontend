@@ -34,7 +34,12 @@ export function NavBar() {
         >
           Recipes
         </Link>
-        <span className="text-white/30 cursor-not-allowed">Meal Plans</span>
+        <Link
+          to="/meal-plans"
+          className="text-white/70 hover:text-white transition-colors [&.active]:text-accent"
+        >
+          Meal Plans
+        </Link>
         {auth.isAuthenticated && (
           <>
             <Link

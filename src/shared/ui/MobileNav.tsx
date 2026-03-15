@@ -14,7 +14,7 @@ const navItems: NavItem[] = [
   { to: '/', icon: Home, label: 'Home' },
   { to: '/recipes', icon: BookOpen, label: 'Recipes' },
   { to: '/favorites', icon: Heart, label: 'Favorites' },
-  { to: '/', icon: CalendarDays, label: 'Meals', disabled: true },
+  { to: '/meal-plans', icon: CalendarDays, label: 'Meals' },
   { to: '/profile', icon: User, label: 'Profile' },
 ]
 
