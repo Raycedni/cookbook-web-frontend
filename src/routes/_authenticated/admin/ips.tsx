@@ -1,17 +1,15 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { ShieldBan } from 'lucide-react'
-import { EmptyState } from '@/shared/ui/EmptyState'
+import { BlockedIpSection } from '@/features/admin/ui/BlockedIpSection'
 
 export const Route = createFileRoute('/_authenticated/admin/ips')({
-  component: AdminBlockedIps,
+  component: AdminBlockedIpsPage,
 })
 
-function AdminBlockedIps() {
+function AdminBlockedIpsPage() {
   return (
-    <EmptyState
-      icon={ShieldBan}
-      title="Blocked IPs"
-      description="IP blocking management coming soon."
-    />
+    <div>
+      <h1 className="text-2xl font-bold text-white mb-6">Blocked IPs</h1>
+      <BlockedIpSection />
+    </div>
   )
 }

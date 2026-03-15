@@ -1,17 +1,15 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { Users } from 'lucide-react'
-import { EmptyState } from '@/shared/ui/EmptyState'
+import { UserManagement } from '@/features/admin/ui/UserManagement'
 
 export const Route = createFileRoute('/_authenticated/admin/users')({
-  component: AdminUsers,
+  component: AdminUsersPage,
 })
 
-function AdminUsers() {
+function AdminUsersPage() {
   return (
-    <EmptyState
-      icon={Users}
-      title="User Management"
-      description="User listing and role management coming soon."
-    />
+    <div>
+      <h1 className="text-2xl font-bold text-white mb-6">User Management</h1>
+      <UserManagement />
+    </div>
   )
 }

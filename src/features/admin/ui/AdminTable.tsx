@@ -1,4 +1,4 @@
-import { type ReactNode, useState } from 'react'
+import { type ReactNode, useState, useEffect } from 'react'
 import type { LucideIcon } from 'lucide-react'
 import { Plus, Pencil, Trash2, Check, X, Search } from 'lucide-react'
 import { GlassPanel } from '@/shared/ui/GlassPanel'
@@ -24,13 +24,14 @@ interface AdminTableProps<T> {
   isLoading: boolean
   searchPlaceholder: string
   onSearch: (query: string) => void
-  onSave: (item: Partial<T>) => Promise<void>
+  onSave?: (item: Partial<T>) => Promise<void>
   onDelete: (item: T) => Promise<void>
-  onCreate: (item: Partial<T>) => Promise<void>
+  onCreate?: (item: Partial<T>) => Promise<void>
   getId: (item: T) => string | number
-  emptyDefaults: Partial<T>
+  emptyDefaults?: Partial<T>
   emptyIcon: LucideIcon
   emptyTitle: string
+  children?: ReactNode
 }
 
 export function AdminTable<T>({
@@ -46,6 +47,7 @@ export function AdminTable<T>({
   emptyDefaults,
   emptyIcon,
   emptyTitle,
+  children,
 }: AdminTableProps<T>) {
   const [editingId, setEditingId] = useState<string | number | null>(null)
   const [editValues, setEditValues] = useState<Record<string, unknown>>({})
@@ -54,15 +56,9 @@ export function AdminTable<T>({
   const debouncedSearch = useDebounce(searchQuery)
 
   // Propagate debounced search to parent
-  useState(() => {
+  useEffect(() => {
     onSearch(debouncedSearch)
-  })
-
-  function handleSearchChange(value: string) {
-    setSearchQuery(value)
-    // We need a useEffect-like behavior, so we call onSearch directly
-    // The debounced value will be used by the parent via onSearch
-  }
+  }, [debouncedSearch, onSearch])
 
   function handleStartEdit(item: T) {
     const values: Record<string, unknown> = {}
@@ -135,21 +131,20 @@ export function AdminTable<T>({
             type="text"
             placeholder={searchPlaceholder}
             value={searchQuery}
-            onChange={(e) => {
-              handleSearchChange(e.target.value)
-              onSearch(e.target.value)
-            }}
+            onChange={(e) => setSearchQuery(e.target.value)}
             className="w-full rounded-lg bg-white/5 py-2 pl-10 pr-4 text-sm text-white/90 placeholder:text-white/30 outline-none focus:ring-1 focus:ring-accent/50"
           />
         </div>
-        <button
-          type="button"
-          onClick={handleStartCreate}
-          className="flex items-center gap-1.5 rounded-lg bg-accent/20 px-3 py-2 text-sm text-accent-light hover:bg-accent/30 transition-colors"
-        >
-          <Plus className="h-4 w-4" />
-          Add
-        </button>
+        {onCreate && (
+          <button
+            type="button"
+            onClick={handleStartCreate}
+            className="flex items-center gap-1.5 rounded-lg bg-accent/20 px-3 py-2 text-sm text-accent-light hover:bg-accent/30 transition-colors"
+          >
+            <Plus className="h-4 w-4" />
+            Add
+          </button>
+        )}
       </div>
 
       {/* Table */}
@@ -271,13 +266,15 @@ export function AdminTable<T>({
                           </>
                         ) : (
                           <>
-                            <button
-                              type="button"
-                              onClick={() => handleStartEdit(item)}
-                              className="rounded p-1 text-white/40 hover:text-white hover:bg-white/10"
-                            >
-                              <Pencil className="h-4 w-4" />
-                            </button>
+                            {onSave && (
+                              <button
+                                type="button"
+                                onClick={() => handleStartEdit(item)}
+                                className="rounded p-1 text-white/40 hover:text-white hover:bg-white/10"
+                              >
+                                <Pencil className="h-4 w-4" />
+                              </button>
+                            )}
                             <button
                               type="button"
                               onClick={() => void handleDelete(item)}
@@ -296,6 +293,7 @@ export function AdminTable<T>({
           </table>
         </div>
       )}
+      {children}
     </GlassPanel>
   )
 }

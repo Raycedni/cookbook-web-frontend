@@ -1,17 +1,17 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { Settings } from 'lucide-react'
-import { EmptyState } from '@/shared/ui/EmptyState'
+import { ConfigSection } from '@/features/admin/ui/ConfigSection'
 
 export const Route = createFileRoute('/_authenticated/admin/config')({
-  component: AdminConfig,
+  component: AdminConfigPage,
 })
 
-function AdminConfig() {
+function AdminConfigPage() {
   return (
-    <EmptyState
-      icon={Settings}
-      title="System Configuration"
-      description="Key-value configuration management coming soon."
-    />
+    <div>
+      <h1 className="text-2xl font-bold text-white mb-6">
+        System Configuration
+      </h1>
+      <ConfigSection />
+    </div>
   )
 }
