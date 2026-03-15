@@ -2,15 +2,15 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: in-progress
-stopped_at: Completed 02-04-PLAN.md
-last_updated: "2026-03-15T00:09:55.000Z"
+status: executing
+stopped_at: Completed 02-03-PLAN.md
+last_updated: "2026-03-15T00:15:57.394Z"
 last_activity: 2026-03-15 -- Plan 02-04 executed (User profile and ingredient browsing)
 progress:
   total_phases: 5
   completed_phases: 1
   total_plans: 7
-  completed_plans: 5
+  completed_plans: 6
   percent: 71
 ---
 
@@ -51,6 +51,7 @@ Progress: [███████░░░] 71%
 - Trend: stable
 
 *Updated after each plan completion*
+| Phase 02 P03 | 13min | 2 tasks | 10 files |
 
 ## Accumulated Context
 
@@ -75,6 +76,8 @@ Recent decisions affecting current work:
 - [Phase 02]: FavoriteIngredients uses inline dropdown for search-to-add pattern
 - [Phase 02]: TagVisibility renders flat tag list with eye icons (not tree)
 - [Phase 02]: IngredientCard fetches detail lazily on expand with conditional query
+- [Phase 02]: ServingScaler uses direct render in tests instead of renderWithProviders (no query dependency)
+- [Phase 02]: RatingForm invalidates ratings, rating-criteria, and recipes query keys on mutation success
 
 ### Pending Todos
 
@@ -88,6 +91,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-15T00:09:55Z
-Stopped at: Completed 02-04-PLAN.md
-Resume file: .planning/phases/02-recipe-browsing-ratings-and-profiles/02-04-SUMMARY.md
+Last session: 2026-03-15T00:15:50.365Z
+Stopped at: Completed 02-03-PLAN.md
+Resume file: None
