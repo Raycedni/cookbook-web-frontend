@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react'
 import { create } from 'zustand'
 import { GlassPanel } from '@/shared/ui/GlassPanel'
 import { cn } from '@/shared/lib/cn'
@@ -5,20 +6,24 @@ import { PanelLeftClose, PanelLeftOpen, Tags } from 'lucide-react'
 
 interface SidebarState {
   isOpen: boolean
+  content: ReactNode | null
   toggle: () => void
   open: () => void
   close: () => void
+  setContent: (content: ReactNode | null) => void
 }
 
 export const useSidebarStore = create<SidebarState>((set) => ({
   isOpen: false,
+  content: null,
   toggle: () => set((state) => ({ isOpen: !state.isOpen })),
   open: () => set({ isOpen: true }),
   close: () => set({ isOpen: false }),
+  setContent: (content) => set({ content }),
 }))
 
 export function Sidebar() {
-  const { isOpen, toggle } = useSidebarStore()
+  const { isOpen, toggle, content } = useSidebarStore()
 
   return (
     <>
@@ -43,16 +48,18 @@ export function Sidebar() {
         )}
       >
         <GlassPanel
-          className="h-full rounded-none border-y-0 border-l-0 p-4 pt-8"
+          className="h-full rounded-none border-y-0 border-l-0 p-4 pt-8 overflow-y-auto"
           intensity="medium"
         >
           <div className="flex items-center gap-2 text-white/60 mb-4">
             <Tags className="h-4 w-4" />
             <h3 className="text-sm font-semibold uppercase tracking-wider">Tags</h3>
           </div>
-          <p className="text-sm text-white/40 italic">
-            Tag browsing will appear here.
-          </p>
+          {content ?? (
+            <p className="text-sm text-white/40 italic">
+              Tag browsing will appear here.
+            </p>
+          )}
         </GlassPanel>
       </aside>
     </>

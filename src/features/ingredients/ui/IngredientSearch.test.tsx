@@ -11,8 +11,8 @@ describe('IngredientSearch', () => {
     vi.useRealTimers()
   })
 
-  it('renders input with placeholder "Search ingredients..."', () => {
-    renderWithProviders(
+  it('renders input with placeholder "Search ingredients..."', async () => {
+    await renderWithProviders(
       <IngredientSearch value="" onChange={vi.fn()} />,
     )
     expect(
@@ -20,15 +20,15 @@ describe('IngredientSearch', () => {
     ).toBeDefined()
   })
 
-  it('shows clear button when input non-empty', () => {
-    renderWithProviders(
+  it('shows clear button when input non-empty', async () => {
+    await renderWithProviders(
       <IngredientSearch value="test" onChange={vi.fn()} />,
     )
     expect(screen.getByRole('button', { name: /clear/i })).toBeDefined()
   })
 
-  it('does not show clear button when input is empty', () => {
-    renderWithProviders(
+  it('does not show clear button when input is empty', async () => {
+    await renderWithProviders(
       <IngredientSearch value="" onChange={vi.fn()} />,
     )
     expect(screen.queryByRole('button', { name: /clear/i })).toBeNull()
@@ -36,7 +36,7 @@ describe('IngredientSearch', () => {
 
   it('calls onChange after debounce', async () => {
     const onChange = vi.fn()
-    renderWithProviders(
+    await renderWithProviders(
       <IngredientSearch value="" onChange={onChange} />,
     )
     const input = screen.getByPlaceholderText('Search ingredients...')

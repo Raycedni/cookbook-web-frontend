@@ -10,16 +10,16 @@ const mockProfile: UserProfile = {
 }
 
 describe('ProfileForm', () => {
-  it('renders input with current display name', () => {
-    renderWithProviders(
+  it('renders input with current display name', async () => {
+    await renderWithProviders(
       <ProfileForm profile={mockProfile} onSave={vi.fn()} isSaving={false} />,
     )
     const input = screen.getByDisplayValue('Test User')
     expect(input).toBeDefined()
   })
 
-  it('save button disabled when name unchanged', () => {
-    renderWithProviders(
+  it('save button disabled when name unchanged', async () => {
+    await renderWithProviders(
       <ProfileForm profile={mockProfile} onSave={vi.fn()} isSaving={false} />,
     )
     const button = screen.getByRole('button', { name: /save/i })
@@ -27,7 +27,7 @@ describe('ProfileForm', () => {
   })
 
   it('save button disabled when name is empty or whitespace', async () => {
-    renderWithProviders(
+    await renderWithProviders(
       <ProfileForm profile={mockProfile} onSave={vi.fn()} isSaving={false} />,
     )
     const input = screen.getByDisplayValue('Test User')
@@ -46,7 +46,7 @@ describe('ProfileForm', () => {
 
   it('calls onSave with trimmed name on submit', async () => {
     const onSave = vi.fn()
-    renderWithProviders(
+    await renderWithProviders(
       <ProfileForm profile={mockProfile} onSave={onSave} isSaving={false} />,
     )
     const input = screen.getByDisplayValue('Test User')
@@ -65,15 +65,11 @@ describe('ProfileForm', () => {
     expect(onSave).toHaveBeenCalledWith({ displayName: 'New Name' })
   })
 
-  it('shows "Saved!" feedback after successful save', async () => {
-    const { rerender } = renderWithProviders(
+  it('shows saving state when isSaving=true', async () => {
+    await renderWithProviders(
       <ProfileForm profile={mockProfile} onSave={vi.fn()} isSaving={true} />,
     )
-    // Re-render with isSaving=false to simulate completion
-    rerender(
-      <ProfileForm profile={mockProfile} onSave={vi.fn()} isSaving={false} />,
-    )
-    // The "Saved!" text should appear when isSaving transitions false->done
-    // This is tested through the component's internal saved state
+    const button = screen.getByRole('button', { name: /saving/i })
+    expect(button).toBeDisabled()
   })
 })

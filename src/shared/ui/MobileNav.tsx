@@ -1,6 +1,6 @@
 import type { LucideIcon } from 'lucide-react'
 import { Link } from '@tanstack/react-router'
-import { Home, BookOpen, CalendarDays, User } from 'lucide-react'
+import { Home, BookOpen, Heart, CalendarDays, User } from 'lucide-react'
 import { GlassPanel } from '@/shared/ui/GlassPanel'
 
 interface NavItem {
@@ -12,9 +12,10 @@ interface NavItem {
 
 const navItems: NavItem[] = [
   { to: '/', icon: Home, label: 'Home' },
-  { to: '/', icon: BookOpen, label: 'Recipes', disabled: true },
+  { to: '/recipes', icon: BookOpen, label: 'Recipes' },
+  { to: '/favorites', icon: Heart, label: 'Favorites' },
   { to: '/', icon: CalendarDays, label: 'Meals', disabled: true },
-  { to: '/', icon: User, label: 'Profile', disabled: true },
+  { to: '/profile', icon: User, label: 'Profile' },
 ]
 
 export function MobileNav() {

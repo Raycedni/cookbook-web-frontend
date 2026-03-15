@@ -1,6 +1,6 @@
 import { Link } from '@tanstack/react-router'
 import { useAuth } from 'react-oidc-context'
-import { ChefHat, LogOut, LogIn, Shield } from 'lucide-react'
+import { ChefHat, LogOut, LogIn, Shield, Heart, User } from 'lucide-react'
 import { GlassPanel } from '@/shared/ui/GlassPanel'
 import { useAuthRoles } from '@/shared/auth/useAuthRoles'
 
@@ -28,8 +28,31 @@ export function NavBar() {
         >
           Home
         </Link>
-        <span className="text-white/30 cursor-not-allowed">Recipes</span>
+        <Link
+          to="/recipes"
+          className="text-white/70 hover:text-white transition-colors [&.active]:text-accent"
+        >
+          Recipes
+        </Link>
         <span className="text-white/30 cursor-not-allowed">Meal Plans</span>
+        {auth.isAuthenticated && (
+          <>
+            <Link
+              to="/favorites"
+              className="flex items-center gap-1 text-white/70 hover:text-white transition-colors [&.active]:text-accent"
+            >
+              <Heart className="h-4 w-4" />
+              Favorites
+            </Link>
+            <Link
+              to="/profile"
+              className="flex items-center gap-1 text-white/70 hover:text-white transition-colors [&.active]:text-accent"
+            >
+              <User className="h-4 w-4" />
+              Profile
+            </Link>
+          </>
+        )}
         {isAdmin && (
           <Link
             to="/"
