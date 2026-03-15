@@ -83,9 +83,9 @@ export function AdminTable<T>({
 
   async function handleSave() {
     if (creatingNew) {
-      await onCreate(editValues as Partial<T>)
+      await onCreate!(editValues as Partial<T>)
     } else {
-      await onSave({ ...editValues, id: editingId } as Partial<T>)
+      await onSave!({ ...editValues, id: editingId } as unknown as Partial<T>)
     }
     setEditingId(null)
     setCreatingNew(false)

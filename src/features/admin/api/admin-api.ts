@@ -181,7 +181,7 @@ export async function createTag(data: {
 
 export async function updateTag(
   id: number,
-  data: { name?: string; parentId?: number },
+  data: { name?: string; parentId?: number | null },
 ): Promise<Tag> {
   return apiClient.put(`admin/tags/${id}`, { json: data }).json<Tag>()
 }

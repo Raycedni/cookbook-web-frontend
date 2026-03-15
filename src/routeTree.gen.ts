@@ -17,11 +17,20 @@ import { Route as AuthenticatedMealPlansRouteImport } from './routes/_authentica
 import { Route as AuthenticatedIngredientsRouteImport } from './routes/_authenticated/ingredients'
 import { Route as AuthenticatedFavoritesRouteImport } from './routes/_authenticated/favorites'
 import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
+import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
+import { Route as AuthenticatedAdminIndexRouteImport } from './routes/_authenticated/admin/index'
 import { Route as RecipesShareTokenRouteImport } from './routes/recipes/share/$token'
 import { Route as AuthenticatedRecipesNewRouteImport } from './routes/_authenticated/recipes/new'
 import { Route as AuthenticatedRecipesRecipeIdRouteImport } from './routes/_authenticated/recipes/$recipeId'
 import { Route as AuthenticatedMealPlansNewRouteImport } from './routes/_authenticated/meal-plans/new'
 import { Route as AuthenticatedMealPlansPlanIdRouteImport } from './routes/_authenticated/meal-plans/$planId'
+import { Route as AuthenticatedAdminUsersRouteImport } from './routes/_authenticated/admin/users'
+import { Route as AuthenticatedAdminUnitsRouteImport } from './routes/_authenticated/admin/units'
+import { Route as AuthenticatedAdminTagsRouteImport } from './routes/_authenticated/admin/tags'
+import { Route as AuthenticatedAdminRatingCriteriaRouteImport } from './routes/_authenticated/admin/rating-criteria'
+import { Route as AuthenticatedAdminIpsRouteImport } from './routes/_authenticated/admin/ips'
+import { Route as AuthenticatedAdminIngredientsRouteImport } from './routes/_authenticated/admin/ingredients'
+import { Route as AuthenticatedAdminConfigRouteImport } from './routes/_authenticated/admin/config'
 import { Route as AuthenticatedRecipesRecipeIdEditRouteImport } from './routes/_authenticated/recipes/$recipeId.edit'
 import { Route as AuthenticatedMealPlansPlanIdShoppingRouteImport } from './routes/_authenticated/meal-plans/$planId.shopping'
 
@@ -65,6 +74,16 @@ const AuthenticatedDashboardRoute = AuthenticatedDashboardRouteImport.update({
   path: '/dashboard',
   getParentRoute: () => AuthenticatedRoute,
 } as any)
+const AuthenticatedAdminRoute = AuthenticatedAdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => AuthenticatedRoute,
+} as any)
+const AuthenticatedAdminIndexRoute = AuthenticatedAdminIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AuthenticatedAdminRoute,
+} as any)
 const RecipesShareTokenRoute = RecipesShareTokenRouteImport.update({
   id: '/recipes/share/$token',
   path: '/recipes/share/$token',
@@ -93,6 +112,44 @@ const AuthenticatedMealPlansPlanIdRoute =
     path: '/$planId',
     getParentRoute: () => AuthenticatedMealPlansRoute,
   } as any)
+const AuthenticatedAdminUsersRoute = AuthenticatedAdminUsersRouteImport.update({
+  id: '/users',
+  path: '/users',
+  getParentRoute: () => AuthenticatedAdminRoute,
+} as any)
+const AuthenticatedAdminUnitsRoute = AuthenticatedAdminUnitsRouteImport.update({
+  id: '/units',
+  path: '/units',
+  getParentRoute: () => AuthenticatedAdminRoute,
+} as any)
+const AuthenticatedAdminTagsRoute = AuthenticatedAdminTagsRouteImport.update({
+  id: '/tags',
+  path: '/tags',
+  getParentRoute: () => AuthenticatedAdminRoute,
+} as any)
+const AuthenticatedAdminRatingCriteriaRoute =
+  AuthenticatedAdminRatingCriteriaRouteImport.update({
+    id: '/rating-criteria',
+    path: '/rating-criteria',
+    getParentRoute: () => AuthenticatedAdminRoute,
+  } as any)
+const AuthenticatedAdminIpsRoute = AuthenticatedAdminIpsRouteImport.update({
+  id: '/ips',
+  path: '/ips',
+  getParentRoute: () => AuthenticatedAdminRoute,
+} as any)
+const AuthenticatedAdminIngredientsRoute =
+  AuthenticatedAdminIngredientsRouteImport.update({
+    id: '/ingredients',
+    path: '/ingredients',
+    getParentRoute: () => AuthenticatedAdminRoute,
+  } as any)
+const AuthenticatedAdminConfigRoute =
+  AuthenticatedAdminConfigRouteImport.update({
+    id: '/config',
+    path: '/config',
+    getParentRoute: () => AuthenticatedAdminRoute,
+  } as any)
 const AuthenticatedRecipesRecipeIdEditRoute =
   AuthenticatedRecipesRecipeIdEditRouteImport.update({
     id: '/edit',
@@ -108,17 +165,26 @@ const AuthenticatedMealPlansPlanIdShoppingRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/admin': typeof AuthenticatedAdminRouteWithChildren
   '/dashboard': typeof AuthenticatedDashboardRoute
   '/favorites': typeof AuthenticatedFavoritesRoute
   '/ingredients': typeof AuthenticatedIngredientsRoute
   '/meal-plans': typeof AuthenticatedMealPlansRouteWithChildren
   '/profile': typeof AuthenticatedProfileRoute
   '/recipes': typeof AuthenticatedRecipesRouteWithChildren
+  '/admin/config': typeof AuthenticatedAdminConfigRoute
+  '/admin/ingredients': typeof AuthenticatedAdminIngredientsRoute
+  '/admin/ips': typeof AuthenticatedAdminIpsRoute
+  '/admin/rating-criteria': typeof AuthenticatedAdminRatingCriteriaRoute
+  '/admin/tags': typeof AuthenticatedAdminTagsRoute
+  '/admin/units': typeof AuthenticatedAdminUnitsRoute
+  '/admin/users': typeof AuthenticatedAdminUsersRoute
   '/meal-plans/$planId': typeof AuthenticatedMealPlansPlanIdRouteWithChildren
   '/meal-plans/new': typeof AuthenticatedMealPlansNewRoute
   '/recipes/$recipeId': typeof AuthenticatedRecipesRecipeIdRouteWithChildren
   '/recipes/new': typeof AuthenticatedRecipesNewRoute
   '/recipes/share/$token': typeof RecipesShareTokenRoute
+  '/admin/': typeof AuthenticatedAdminIndexRoute
   '/meal-plans/$planId/shopping': typeof AuthenticatedMealPlansPlanIdShoppingRoute
   '/recipes/$recipeId/edit': typeof AuthenticatedRecipesRecipeIdEditRoute
 }
@@ -130,11 +196,19 @@ export interface FileRoutesByTo {
   '/meal-plans': typeof AuthenticatedMealPlansRouteWithChildren
   '/profile': typeof AuthenticatedProfileRoute
   '/recipes': typeof AuthenticatedRecipesRouteWithChildren
+  '/admin/config': typeof AuthenticatedAdminConfigRoute
+  '/admin/ingredients': typeof AuthenticatedAdminIngredientsRoute
+  '/admin/ips': typeof AuthenticatedAdminIpsRoute
+  '/admin/rating-criteria': typeof AuthenticatedAdminRatingCriteriaRoute
+  '/admin/tags': typeof AuthenticatedAdminTagsRoute
+  '/admin/units': typeof AuthenticatedAdminUnitsRoute
+  '/admin/users': typeof AuthenticatedAdminUsersRoute
   '/meal-plans/$planId': typeof AuthenticatedMealPlansPlanIdRouteWithChildren
   '/meal-plans/new': typeof AuthenticatedMealPlansNewRoute
   '/recipes/$recipeId': typeof AuthenticatedRecipesRecipeIdRouteWithChildren
   '/recipes/new': typeof AuthenticatedRecipesNewRoute
   '/recipes/share/$token': typeof RecipesShareTokenRoute
+  '/admin': typeof AuthenticatedAdminIndexRoute
   '/meal-plans/$planId/shopping': typeof AuthenticatedMealPlansPlanIdShoppingRoute
   '/recipes/$recipeId/edit': typeof AuthenticatedRecipesRecipeIdEditRoute
 }
@@ -142,17 +216,26 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/_authenticated': typeof AuthenticatedRouteWithChildren
+  '/_authenticated/admin': typeof AuthenticatedAdminRouteWithChildren
   '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
   '/_authenticated/favorites': typeof AuthenticatedFavoritesRoute
   '/_authenticated/ingredients': typeof AuthenticatedIngredientsRoute
   '/_authenticated/meal-plans': typeof AuthenticatedMealPlansRouteWithChildren
   '/_authenticated/profile': typeof AuthenticatedProfileRoute
   '/_authenticated/recipes': typeof AuthenticatedRecipesRouteWithChildren
+  '/_authenticated/admin/config': typeof AuthenticatedAdminConfigRoute
+  '/_authenticated/admin/ingredients': typeof AuthenticatedAdminIngredientsRoute
+  '/_authenticated/admin/ips': typeof AuthenticatedAdminIpsRoute
+  '/_authenticated/admin/rating-criteria': typeof AuthenticatedAdminRatingCriteriaRoute
+  '/_authenticated/admin/tags': typeof AuthenticatedAdminTagsRoute
+  '/_authenticated/admin/units': typeof AuthenticatedAdminUnitsRoute
+  '/_authenticated/admin/users': typeof AuthenticatedAdminUsersRoute
   '/_authenticated/meal-plans/$planId': typeof AuthenticatedMealPlansPlanIdRouteWithChildren
   '/_authenticated/meal-plans/new': typeof AuthenticatedMealPlansNewRoute
   '/_authenticated/recipes/$recipeId': typeof AuthenticatedRecipesRecipeIdRouteWithChildren
   '/_authenticated/recipes/new': typeof AuthenticatedRecipesNewRoute
   '/recipes/share/$token': typeof RecipesShareTokenRoute
+  '/_authenticated/admin/': typeof AuthenticatedAdminIndexRoute
   '/_authenticated/meal-plans/$planId/shopping': typeof AuthenticatedMealPlansPlanIdShoppingRoute
   '/_authenticated/recipes/$recipeId/edit': typeof AuthenticatedRecipesRecipeIdEditRoute
 }
@@ -160,17 +243,26 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/admin'
     | '/dashboard'
     | '/favorites'
     | '/ingredients'
     | '/meal-plans'
     | '/profile'
     | '/recipes'
+    | '/admin/config'
+    | '/admin/ingredients'
+    | '/admin/ips'
+    | '/admin/rating-criteria'
+    | '/admin/tags'
+    | '/admin/units'
+    | '/admin/users'
     | '/meal-plans/$planId'
     | '/meal-plans/new'
     | '/recipes/$recipeId'
     | '/recipes/new'
     | '/recipes/share/$token'
+    | '/admin/'
     | '/meal-plans/$planId/shopping'
     | '/recipes/$recipeId/edit'
   fileRoutesByTo: FileRoutesByTo
@@ -182,28 +274,45 @@ export interface FileRouteTypes {
     | '/meal-plans'
     | '/profile'
     | '/recipes'
+    | '/admin/config'
+    | '/admin/ingredients'
+    | '/admin/ips'
+    | '/admin/rating-criteria'
+    | '/admin/tags'
+    | '/admin/units'
+    | '/admin/users'
     | '/meal-plans/$planId'
     | '/meal-plans/new'
     | '/recipes/$recipeId'
     | '/recipes/new'
     | '/recipes/share/$token'
+    | '/admin'
     | '/meal-plans/$planId/shopping'
     | '/recipes/$recipeId/edit'
   id:
     | '__root__'
     | '/'
     | '/_authenticated'
+    | '/_authenticated/admin'
     | '/_authenticated/dashboard'
     | '/_authenticated/favorites'
     | '/_authenticated/ingredients'
     | '/_authenticated/meal-plans'
     | '/_authenticated/profile'
     | '/_authenticated/recipes'
+    | '/_authenticated/admin/config'
+    | '/_authenticated/admin/ingredients'
+    | '/_authenticated/admin/ips'
+    | '/_authenticated/admin/rating-criteria'
+    | '/_authenticated/admin/tags'
+    | '/_authenticated/admin/units'
+    | '/_authenticated/admin/users'
     | '/_authenticated/meal-plans/$planId'
     | '/_authenticated/meal-plans/new'
     | '/_authenticated/recipes/$recipeId'
     | '/_authenticated/recipes/new'
     | '/recipes/share/$token'
+    | '/_authenticated/admin/'
     | '/_authenticated/meal-plans/$planId/shopping'
     | '/_authenticated/recipes/$recipeId/edit'
   fileRoutesById: FileRoutesById
@@ -272,6 +381,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedDashboardRouteImport
       parentRoute: typeof AuthenticatedRoute
     }
+    '/_authenticated/admin': {
+      id: '/_authenticated/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AuthenticatedAdminRouteImport
+      parentRoute: typeof AuthenticatedRoute
+    }
+    '/_authenticated/admin/': {
+      id: '/_authenticated/admin/'
+      path: '/'
+      fullPath: '/admin/'
+      preLoaderRoute: typeof AuthenticatedAdminIndexRouteImport
+      parentRoute: typeof AuthenticatedAdminRoute
+    }
     '/recipes/share/$token': {
       id: '/recipes/share/$token'
       path: '/recipes/share/$token'
@@ -307,6 +430,55 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedMealPlansPlanIdRouteImport
       parentRoute: typeof AuthenticatedMealPlansRoute
     }
+    '/_authenticated/admin/users': {
+      id: '/_authenticated/admin/users'
+      path: '/users'
+      fullPath: '/admin/users'
+      preLoaderRoute: typeof AuthenticatedAdminUsersRouteImport
+      parentRoute: typeof AuthenticatedAdminRoute
+    }
+    '/_authenticated/admin/units': {
+      id: '/_authenticated/admin/units'
+      path: '/units'
+      fullPath: '/admin/units'
+      preLoaderRoute: typeof AuthenticatedAdminUnitsRouteImport
+      parentRoute: typeof AuthenticatedAdminRoute
+    }
+    '/_authenticated/admin/tags': {
+      id: '/_authenticated/admin/tags'
+      path: '/tags'
+      fullPath: '/admin/tags'
+      preLoaderRoute: typeof AuthenticatedAdminTagsRouteImport
+      parentRoute: typeof AuthenticatedAdminRoute
+    }
+    '/_authenticated/admin/rating-criteria': {
+      id: '/_authenticated/admin/rating-criteria'
+      path: '/rating-criteria'
+      fullPath: '/admin/rating-criteria'
+      preLoaderRoute: typeof AuthenticatedAdminRatingCriteriaRouteImport
+      parentRoute: typeof AuthenticatedAdminRoute
+    }
+    '/_authenticated/admin/ips': {
+      id: '/_authenticated/admin/ips'
+      path: '/ips'
+      fullPath: '/admin/ips'
+      preLoaderRoute: typeof AuthenticatedAdminIpsRouteImport
+      parentRoute: typeof AuthenticatedAdminRoute
+    }
+    '/_authenticated/admin/ingredients': {
+      id: '/_authenticated/admin/ingredients'
+      path: '/ingredients'
+      fullPath: '/admin/ingredients'
+      preLoaderRoute: typeof AuthenticatedAdminIngredientsRouteImport
+      parentRoute: typeof AuthenticatedAdminRoute
+    }
+    '/_authenticated/admin/config': {
+      id: '/_authenticated/admin/config'
+      path: '/config'
+      fullPath: '/admin/config'
+      preLoaderRoute: typeof AuthenticatedAdminConfigRouteImport
+      parentRoute: typeof AuthenticatedAdminRoute
+    }
     '/_authenticated/recipes/$recipeId/edit': {
       id: '/_authenticated/recipes/$recipeId/edit'
       path: '/edit'
@@ -323,6 +495,31 @@ declare module '@tanstack/react-router' {
     }
   }
 }
+
+interface AuthenticatedAdminRouteChildren {
+  AuthenticatedAdminConfigRoute: typeof AuthenticatedAdminConfigRoute
+  AuthenticatedAdminIngredientsRoute: typeof AuthenticatedAdminIngredientsRoute
+  AuthenticatedAdminIpsRoute: typeof AuthenticatedAdminIpsRoute
+  AuthenticatedAdminRatingCriteriaRoute: typeof AuthenticatedAdminRatingCriteriaRoute
+  AuthenticatedAdminTagsRoute: typeof AuthenticatedAdminTagsRoute
+  AuthenticatedAdminUnitsRoute: typeof AuthenticatedAdminUnitsRoute
+  AuthenticatedAdminUsersRoute: typeof AuthenticatedAdminUsersRoute
+  AuthenticatedAdminIndexRoute: typeof AuthenticatedAdminIndexRoute
+}
+
+const AuthenticatedAdminRouteChildren: AuthenticatedAdminRouteChildren = {
+  AuthenticatedAdminConfigRoute: AuthenticatedAdminConfigRoute,
+  AuthenticatedAdminIngredientsRoute: AuthenticatedAdminIngredientsRoute,
+  AuthenticatedAdminIpsRoute: AuthenticatedAdminIpsRoute,
+  AuthenticatedAdminRatingCriteriaRoute: AuthenticatedAdminRatingCriteriaRoute,
+  AuthenticatedAdminTagsRoute: AuthenticatedAdminTagsRoute,
+  AuthenticatedAdminUnitsRoute: AuthenticatedAdminUnitsRoute,
+  AuthenticatedAdminUsersRoute: AuthenticatedAdminUsersRoute,
+  AuthenticatedAdminIndexRoute: AuthenticatedAdminIndexRoute,
+}
+
+const AuthenticatedAdminRouteWithChildren =
+  AuthenticatedAdminRoute._addFileChildren(AuthenticatedAdminRouteChildren)
 
 interface AuthenticatedMealPlansPlanIdRouteChildren {
   AuthenticatedMealPlansPlanIdShoppingRoute: typeof AuthenticatedMealPlansPlanIdShoppingRoute
@@ -386,6 +583,7 @@ const AuthenticatedRecipesRouteWithChildren =
   AuthenticatedRecipesRoute._addFileChildren(AuthenticatedRecipesRouteChildren)
 
 interface AuthenticatedRouteChildren {
+  AuthenticatedAdminRoute: typeof AuthenticatedAdminRouteWithChildren
   AuthenticatedDashboardRoute: typeof AuthenticatedDashboardRoute
   AuthenticatedFavoritesRoute: typeof AuthenticatedFavoritesRoute
   AuthenticatedIngredientsRoute: typeof AuthenticatedIngredientsRoute
@@ -395,6 +593,7 @@ interface AuthenticatedRouteChildren {
 }
 
 const AuthenticatedRouteChildren: AuthenticatedRouteChildren = {
+  AuthenticatedAdminRoute: AuthenticatedAdminRouteWithChildren,
   AuthenticatedDashboardRoute: AuthenticatedDashboardRoute,
   AuthenticatedFavoritesRoute: AuthenticatedFavoritesRoute,
   AuthenticatedIngredientsRoute: AuthenticatedIngredientsRoute,
