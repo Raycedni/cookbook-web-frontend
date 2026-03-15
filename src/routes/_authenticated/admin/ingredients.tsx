@@ -1,6 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { Salad } from 'lucide-react'
-import { EmptyState } from '@/shared/ui/EmptyState'
+import { IngredientSection } from '@/features/admin/ui/IngredientSection'
 
 export const Route = createFileRoute('/_authenticated/admin/ingredients')({
   component: AdminIngredients,
@@ -8,10 +7,9 @@ export const Route = createFileRoute('/_authenticated/admin/ingredients')({
 
 function AdminIngredients() {
   return (
-    <EmptyState
-      icon={Salad}
-      title="Ingredients"
-      description="Ingredient management coming soon."
-    />
+    <div className="space-y-6">
+      <h1 className="text-2xl font-bold text-white">Ingredients</h1>
+      <IngredientSection />
+    </div>
   )
 }
