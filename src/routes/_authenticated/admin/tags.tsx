@@ -1,6 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { Tags } from 'lucide-react'
-import { EmptyState } from '@/shared/ui/EmptyState'
+import { AdminTagTree } from '@/features/admin/ui/AdminTagTree'
 
 export const Route = createFileRoute('/_authenticated/admin/tags')({
   component: AdminTags,
@@ -8,10 +7,9 @@ export const Route = createFileRoute('/_authenticated/admin/tags')({
 
 function AdminTags() {
   return (
-    <EmptyState
-      icon={Tags}
-      title="Tags"
-      description="Tag tree management coming soon."
-    />
+    <div>
+      <h1 className="text-2xl font-bold text-white mb-6">Tag Management</h1>
+      <AdminTagTree />
+    </div>
   )
 }
