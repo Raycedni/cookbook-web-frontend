@@ -3,9 +3,9 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 05-01-PLAN.md
-last_updated: "2026-03-15T16:05:22.677Z"
-last_activity: "2026-03-15 -- Plan 05-01 executed (Admin foundation: types, API, queries, AdminTable, layout route, scaffolds)"
+stopped_at: Completed 05-02-PLAN.md
+last_updated: "2026-03-15T16:12:43.357Z"
+last_activity: 2026-03-15 -- Plan 05-03 executed (Rating criteria with toggle, ingredients, units table sections)
 progress:
   total_phases: 5
   completed_phases: 4
@@ -61,6 +61,7 @@ Progress: [█████████░] 95%
 | Phase 04 P04 | 5min | 2 tasks | 6 files |
 | Phase 05 P01 | 4min | 2 tasks | 15 files |
 | Phase 05 P03 | 3min | 2 tasks | 7 files |
+| Phase 05 P02 | 5min | 2 tasks | 10 files |
 
 ## Accumulated Context
 
@@ -114,6 +115,9 @@ Recent decisions affecting current work:
 - [Phase 05]: ToggleSwitch fires toggle mutation immediately without entering edit mode
 - [Phase 05]: AllergenIds edited as comma-separated text input for simplicity
 - [Phase 05]: All admin mutations invalidate both admin and user-facing query caches
+- [Phase 05]: AdminTable props made optional (onCreate, onSave) to support sections without all CRUD ops
+- [Phase 05]: AdminTable search fixed to use useEffect for debounce propagation
+- [Phase 05]: BlockedIpSection uses client-side filtering since blocked IPs API returns flat array
 
 ### Pending Todos
 
@@ -127,6 +131,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-15T16:09:11Z
-Stopped at: Completed 05-03-PLAN.md
+Last session: 2026-03-15T16:12:43.316Z
+Stopped at: Completed 05-02-PLAN.md
 Resume file: None
