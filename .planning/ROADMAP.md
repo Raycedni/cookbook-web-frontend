@@ -106,7 +106,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation and Authentication | 3/3 | Complete |  |
-| 2. Recipe Browsing, Ratings, and Profiles | 3/4 | In Progress|  |
+| 2. Recipe Browsing, Ratings, and Profiles | 4/4 | Complete |  |
 | 3. Recipe Management | 0/2 | Not started | - |
 | 4. Meal Planning and Shopping | 0/2 | Not started | - |
 | 5. Administration | 0/2 | Not started | - |

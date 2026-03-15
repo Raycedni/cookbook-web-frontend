@@ -72,6 +72,10 @@ Recent decisions affecting current work:
 - [Phase 02]: buildTagTree converts flat Tag[] with parentId to nested TagNode[] tree
 - [Phase 02]: StarRating uses CSS clip for fractional star fill display
 - [Phase 02]: Feature-sliced directory structure: src/features/{domain}/api/{types,api,queries}.ts
+- [Phase 02]: Sidebar content slot via Zustand setContent/content pattern -- pages set on mount, clear on unmount
+- [Phase 02]: URL-synced filters: validateSearch + useNavigate with search functional updaters
+- [Phase 02]: renderWithProviders made async with TanStack Router context for Link testing
+- [Phase 02]: Mobile tag filter access via bottom sheet overlay pattern
 - [Phase 02]: ProfileForm uses onInput handler for native DOM input event compatibility
 - [Phase 02]: FavoriteIngredients uses inline dropdown for search-to-add pattern
 - [Phase 02]: TagVisibility renders flat tag list with eye icons (not tree)

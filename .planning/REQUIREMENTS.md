@@ -29,7 +29,7 @@ Requirements for initial release. Each maps to roadmap phases.
 
 - [x] **BROWSE-01**: User can view recipes in a card grid with hero images, title, cook time, and rating
 - [x] **BROWSE-02**: User can search recipes by keyword with results updating dynamically
-- [ ] **BROWSE-03**: User can filter recipes by tags via hierarchical tag navigation
+- [x] **BROWSE-03**: User can filter recipes by tags via hierarchical tag navigation
 - [x] **BROWSE-04**: User can view paginated recipe lists with load-more or pagination controls
 - [x] **BROWSE-05**: User can view a recipe detail page with hero image, ingredients, steps, metadata, and ratings
 - [x] **BROWSE-06**: User can adjust serving count and see ingredient amounts recalculated in real-time
@@ -152,7 +152,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | AUTH-05 | Phase 1 | Complete |
 | BROWSE-01 | Phase 2 | Complete |
 | BROWSE-02 | Phase 2 | Complete |
-| BROWSE-03 | Phase 2 | Pending |
+| BROWSE-03 | Phase 2 | Complete |
 | BROWSE-04 | Phase 2 | Complete |
 | BROWSE-05 | Phase 2 | Complete |
 | BROWSE-06 | Phase 2 | Complete |
