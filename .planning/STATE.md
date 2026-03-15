@@ -3,9 +3,9 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 04-05-PLAN.md
-last_updated: "2026-03-15T15:23:15.289Z"
-last_activity: 2026-03-15 -- Plan 04-03 executed (Weekly calendar view with recipe picker, meal slot management)
+stopped_at: Completed 04-04-PLAN.md
+last_updated: "2026-03-15T15:26:23.792Z"
+last_activity: 2026-03-15 -- Plan 04-04 executed (Drag-and-drop recipe assignment and auto-generate meal plans)
 progress:
   total_phases: 5
   completed_phases: 3
@@ -26,9 +26,9 @@ See: .planning/PROJECT.md (updated 2026-03-14)
 ## Current Position
 
 Phase: 4 of 5 (Meal Planning and Shopping)
-Plan: 5 of 5 in current phase (Plan 05 complete)
+Plan: 4 of 5 in current phase (Plan 04 complete)
 Status: In Progress
-Last activity: 2026-03-15 -- Plan 04-03 executed (Weekly calendar view with recipe picker, meal slot management)
+Last activity: 2026-03-15 -- Plan 04-04 executed (Drag-and-drop recipe assignment and auto-generate meal plans)
 
 Progress: [█████████░] 93%
 
@@ -58,6 +58,7 @@ Progress: [█████████░] 93%
 | Phase 04 P03 | 4min | 2 tasks | 5 files |
 | Phase 04 P02 | 3min | 2 tasks | 4 files |
 | Phase 04 P05 | 3min | 2 tasks | 4 files |
+| Phase 04 P04 | 5min | 2 tasks | 6 files |
 
 ## Accumulated Context
 
@@ -104,6 +105,7 @@ Recent decisions affecting current work:
 - [Phase 04]: RecipePickerModal reuses recipeQueries.list with infinite scroll
 - [Phase 04]: MealPlanForm uses useState for form state (no form library), consistent with project convention
 - [Phase 04]: useShoppingCheckOff hook: optimistic mutation with localStorage fallback on API error
+- [Phase 04]: DndContext wraps calendar+panel as siblings, PointerSensor distance:8 for click vs drag
 
 ### Pending Todos
 
@@ -117,6 +119,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-15T15:23:15.262Z
-Stopped at: Completed 04-05-PLAN.md
+Last session: 2026-03-15T15:26:23.759Z
+Stopped at: Completed 04-04-PLAN.md
 Resume file: None

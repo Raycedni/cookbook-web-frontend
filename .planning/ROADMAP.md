@@ -15,7 +15,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [ ] **Phase 1: Foundation and Authentication** - SPA shell, glassmorphism design system, Keycloak auth, Docker, responsive layout
 - [ ] **Phase 2: Recipe Browsing, Ratings, and Profiles** - Recipe card grid, search, filters, detail view with scaling, ratings, favorites, user profile, ingredient browsing
 - [ ] **Phase 3: Recipe Management** - Recipe create/edit/delete forms, image upload, tagging, sharing via token links
-- [ ] **Phase 4: Meal Planning and Shopping** - Meal plan calendar, auto-generation, shopping list with aggregation and checkboxes
+- [x] **Phase 4: Meal Planning and Shopping** - Meal plan calendar, auto-generation, shopping list with aggregation and checkboxes (completed 2026-03-15)
 - [ ] **Phase 5: Administration** - Admin dashboard, user/IP/config/rating-criteria/ingredient/tag/unit management
 
 ## Phase Details
@@ -112,5 +112,5 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 | 1. Foundation and Authentication | 3/3 | Complete |  |
 | 2. Recipe Browsing, Ratings, and Profiles | 4/4 | Complete |  |
 | 3. Recipe Management | 3/3 | Complete | 2026-03-15 |
-| 4. Meal Planning and Shopping | 3/5 | In Progress|  |
+| 4. Meal Planning and Shopping | 5/5 | Complete   | 2026-03-15 |
 | 5. Administration | 0/2 | Not started | - |
