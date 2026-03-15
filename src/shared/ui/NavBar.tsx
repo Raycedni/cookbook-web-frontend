@@ -60,8 +60,8 @@ export function NavBar() {
         )}
         {isAdmin && (
           <Link
-            to="/"
-            className="flex items-center gap-1 text-accent/70 hover:text-accent transition-colors"
+            to="/admin"
+            className="flex items-center gap-1 text-accent/70 hover:text-accent transition-colors [&.active]:text-accent"
           >
             <Shield className="h-4 w-4" />
             Admin
