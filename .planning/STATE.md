@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 05-02-PLAN.md
-last_updated: "2026-03-15T16:12:43.357Z"
-last_activity: 2026-03-15 -- Plan 05-03 executed (Rating criteria with toggle, ingredients, units table sections)
+stopped_at: Completed 05-04-PLAN.md
+last_updated: "2026-03-15T16:13:58.716Z"
+last_activity: 2026-03-15 -- Plan 05-04 executed (Tag tree with dnd-kit drag-to-move, merge modal, inline rename)
 progress:
   total_phases: 5
-  completed_phases: 4
+  completed_phases: 5
   total_plans: 19
-  completed_plans: 18
+  completed_plans: 19
   percent: 95
 ---
 
@@ -26,9 +26,9 @@ See: .planning/PROJECT.md (updated 2026-03-14)
 ## Current Position
 
 Phase: 5 of 5 (Administration)
-Plan: 3 of 4 in current phase (Plan 03 complete)
+Plan: 4 of 4 in current phase (Plan 04 complete)
 Status: In Progress
-Last activity: 2026-03-15 -- Plan 05-03 executed (Rating criteria with toggle, ingredients, units table sections)
+Last activity: 2026-03-15 -- Plan 05-04 executed (Tag tree with dnd-kit drag-to-move, merge modal, inline rename)
 
 Progress: [█████████░] 95%
 
@@ -62,6 +62,7 @@ Progress: [█████████░] 95%
 | Phase 05 P01 | 4min | 2 tasks | 15 files |
 | Phase 05 P03 | 3min | 2 tasks | 7 files |
 | Phase 05 P02 | 5min | 2 tasks | 10 files |
+| Phase 05 P04 | 6min | 2 tasks | 3 files |
 
 ## Accumulated Context
 
@@ -118,6 +119,8 @@ Recent decisions affecting current work:
 - [Phase 05]: AdminTable props made optional (onCreate, onSave) to support sections without all CRUD ops
 - [Phase 05]: AdminTable search fixed to use useEffect for debounce propagation
 - [Phase 05]: BlockedIpSection uses client-side filtering since blocked IPs API returns flat array
+- [Phase 05]: Used DndContext (not sortable) for tree drag-to-move with custom drop logic and subtree cycle prevention
+- [Phase 05]: Merge preview endpoint called with graceful 404 fallback (no recipe count shown if endpoint unavailable)
 
 ### Pending Todos
 
@@ -131,6 +134,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-15T16:12:43.316Z
-Stopped at: Completed 05-02-PLAN.md
+Last session: 2026-03-15T16:13:58.682Z
+Stopped at: Completed 05-04-PLAN.md
 Resume file: None
