@@ -1,5 +1,12 @@
 import { infiniteQueryOptions, queryOptions } from '@tanstack/react-query'
-import { getRecipe, getRecipes, getTags } from './recipe-api'
+import {
+  getAssignableTags,
+  getRecipe,
+  getRecipes,
+  getSharedRecipe,
+  getTags,
+  getUnits,
+} from './recipe-api'
 import type { RecipeFilters } from './types'
 
 export const recipeQueries = {
@@ -24,5 +31,24 @@ export const recipeQueries = {
     queryOptions({
       queryKey: ['tags'] as const,
       queryFn: () => getTags(),
+    }),
+
+  units: () =>
+    queryOptions({
+      queryKey: ['units'] as const,
+      queryFn: () => getUnits(),
+      staleTime: 10 * 60 * 1000, // units rarely change
+    }),
+
+  assignableTags: () =>
+    queryOptions({
+      queryKey: ['tags', 'assignable'] as const,
+      queryFn: () => getAssignableTags(),
+    }),
+
+  shared: (token: string) =>
+    queryOptions({
+      queryKey: [...recipeQueries.all(), 'shared', token] as const,
+      queryFn: () => getSharedRecipe(token),
     }),
 }

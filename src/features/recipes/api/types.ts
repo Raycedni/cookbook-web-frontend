@@ -61,6 +61,88 @@ export interface RecipeFilters {
   tagIds?: number[]
 }
 
+export interface Unit {
+  id: number
+  name: string
+  abbreviation: string
+  type: string
+}
+
+export interface MediaFileResponse {
+  id: number
+  url: string
+  isPrimary: boolean
+}
+
+export interface ShareResponse {
+  shareToken: string
+}
+
+// Form state types for the wizard
+export interface IngredientFormRow {
+  localId: string // crypto.randomUUID() for dnd-kit key
+  ingredientId: number | null
+  ingredientName: string
+  amount: number | string // string while user is typing
+  unitId: number | null
+}
+
+export interface StepFormRow {
+  localId: string // crypto.randomUUID() for dnd-kit key
+  text: string
+  images: File[]
+  existingImageUrls: string[] // for edit mode — already-uploaded images
+}
+
+export interface WizardState {
+  name: string
+  description: string
+  servings: number
+  prepTimeMinutes: number
+  cookTimeMinutes: number
+  heroImage: File | null
+  heroImagePreview: string | null
+  existingHeroImageUrl: string | null // for edit mode
+  ingredients: IngredientFormRow[]
+  steps: StepFormRow[]
+  tagIds: number[]
+}
+
+// Backend request types — use `name` (not `title`), step `description` (not `instruction`)
+export interface CreateRecipeRequest {
+  name: string
+  description?: string
+  servings?: number
+  prepTimeMinutes?: number
+  cookTimeMinutes?: number
+  isPublic?: boolean
+  steps?: { stepOrder: number; description: string }[]
+  ingredients?: {
+    ingredientId: number
+    amount: number
+    unitId: number
+    orderIndex: number
+  }[]
+  tagIds?: number[]
+}
+
+export interface UpdateRecipeRequest {
+  name?: string
+  description?: string
+  servings?: number
+  prepTimeMinutes?: number
+  cookTimeMinutes?: number
+  isPublic?: boolean
+  steps?: { stepOrder: number; description: string }[]
+  ingredients?: {
+    ingredientId: number
+    amount: number
+    unitId: number
+    orderIndex: number
+  }[]
+  tagIds?: number[]
+}
+
 export function buildTagTree(tags: Tag[]): TagNode[] {
   const nodeMap = new Map<number, TagNode>()
   const roots: TagNode[] = []
