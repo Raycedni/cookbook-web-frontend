@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: in-progress
-stopped_at: Completed 02-01-PLAN.md
-last_updated: "2026-03-14T23:58:13.000Z"
-last_activity: 2026-03-15 -- Plan 02-01 executed (API layer and shared utilities)
+stopped_at: Completed 02-04-PLAN.md
+last_updated: "2026-03-15T00:09:55.000Z"
+last_activity: 2026-03-15 -- Plan 02-04 executed (User profile and ingredient browsing)
 progress:
   total_phases: 5
   completed_phases: 1
   total_plans: 7
-  completed_plans: 4
-  percent: 57
+  completed_plans: 5
+  percent: 71
 ---
 
 # Project State
@@ -26,28 +26,28 @@ See: .planning/PROJECT.md (updated 2026-03-14)
 ## Current Position
 
 Phase: 2 of 5 (Recipe Browsing, Ratings, and Profiles)
-Plan: 1 of 4 in current phase (Plan 01 complete)
+Plan: 4 of 4 in current phase (Plan 04 complete)
 Status: In Progress
-Last activity: 2026-03-15 -- Plan 02-01 executed (API layer and shared utilities)
+Last activity: 2026-03-15 -- Plan 02-04 executed (User profile and ingredient browsing)
 
-Progress: [██████░░░░] 57%
+Progress: [███████░░░] 71%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 4
-- Average duration: 5min
-- Total execution time: 0.3 hours
+- Total plans completed: 5
+- Average duration: 6min
+- Total execution time: 0.5 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 1 | 3 | 14min | 5min |
-| 2 | 1 | 4min | 4min |
+| 2 | 2 | 13min | 7min |
 
 **Recent Trend:**
-- Last 5 plans: 7min, 5min, 2min, 4min
+- Last 5 plans: 7min, 5min, 2min, 4min, 9min
 - Trend: stable
 
 *Updated after each plan completion*
@@ -71,6 +71,10 @@ Recent decisions affecting current work:
 - [Phase 02]: buildTagTree converts flat Tag[] with parentId to nested TagNode[] tree
 - [Phase 02]: StarRating uses CSS clip for fractional star fill display
 - [Phase 02]: Feature-sliced directory structure: src/features/{domain}/api/{types,api,queries}.ts
+- [Phase 02]: ProfileForm uses onInput handler for native DOM input event compatibility
+- [Phase 02]: FavoriteIngredients uses inline dropdown for search-to-add pattern
+- [Phase 02]: TagVisibility renders flat tag list with eye icons (not tree)
+- [Phase 02]: IngredientCard fetches detail lazily on expand with conditional query
 
 ### Pending Todos
 
@@ -84,6 +88,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-14T23:58:13Z
-Stopped at: Completed 02-01-PLAN.md
-Resume file: .planning/phases/02-recipe-browsing-ratings-and-profiles/02-01-SUMMARY.md
+Last session: 2026-03-15T00:09:55Z
+Stopped at: Completed 02-04-PLAN.md
+Resume file: .planning/phases/02-recipe-browsing-ratings-and-profiles/02-04-SUMMARY.md
