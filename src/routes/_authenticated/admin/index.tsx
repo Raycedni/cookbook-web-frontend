@@ -1,17 +1,10 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { LayoutDashboard } from 'lucide-react'
-import { EmptyState } from '@/shared/ui/EmptyState'
+import { AdminDashboard } from '@/features/admin/ui/AdminDashboard'
 
 export const Route = createFileRoute('/_authenticated/admin/')({
-  component: AdminDashboard,
+  component: AdminDashboardPage,
 })
 
-function AdminDashboard() {
-  return (
-    <EmptyState
-      icon={LayoutDashboard}
-      title="Admin Dashboard"
-      description="Statistics and overview coming soon."
-    />
-  )
+function AdminDashboardPage() {
+  return <AdminDashboard />
 }
