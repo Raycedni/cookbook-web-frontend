@@ -10,6 +10,8 @@ import {
   Users,
   ChevronDown,
   ChevronUp,
+  ChevronLeft,
+  ChevronRight,
 } from 'lucide-react'
 import { Skeleton } from '@/shared/ui/Skeleton'
 import { GlassPanel } from '@/shared/ui/GlassPanel'
@@ -50,6 +52,7 @@ function MealPlanDetailPage() {
   } | null>(null)
   const [showSlotManager, setShowSlotManager] = useState(false)
   const [showEditForm, setShowEditForm] = useState(false)
+  const [showDragPanel, setShowDragPanel] = useState(false)
 
   // Edit form state
   const [editName, setEditName] = useState('')
@@ -85,6 +88,14 @@ function MealPlanDetailPage() {
       recipeId: recipe.id,
     })
     setPickerTarget(null)
+  }
+
+  const handleAssignRecipe = (dayIndex: number, slotId: string, recipeId: string) => {
+    assignMutation.mutate({
+      dayIndex,
+      mealSlotId: slotId,
+      recipeId,
+    })
   }
 
   const handleOpenEdit = () => {
@@ -162,6 +173,18 @@ function MealPlanDetailPage() {
           </button>
           <button
             type="button"
+            onClick={() => setShowDragPanel((prev) => !prev)}
+            className="hidden md:inline-flex items-center gap-1.5 rounded-lg bg-white/10 px-3 py-1.5 text-sm text-white/70 hover:bg-white/15 transition-colors"
+          >
+            {showDragPanel ? (
+              <ChevronRight className="h-3.5 w-3.5" />
+            ) : (
+              <ChevronLeft className="h-3.5 w-3.5" />
+            )}
+            Recipe Panel
+          </button>
+          <button
+            type="button"
             disabled
             className="inline-flex items-center gap-1.5 rounded-lg bg-white/10 px-3 py-1.5 text-sm text-white/40 cursor-not-allowed"
           >
@@ -226,13 +249,15 @@ function MealPlanDetailPage() {
         <MealSlotManager planId={planId} slots={plan.mealSlots} />
       )}
 
-      {/* Weekly calendar */}
+      {/* Weekly calendar with drag panel */}
       <WeeklyCalendar
         plan={plan}
         onAddRecipe={(dayIndex, slotId) =>
           setPickerTarget({ dayIndex, slotId })
         }
         onRemoveMeal={(mealId) => removeMutation.mutate(mealId)}
+        onAssignRecipe={handleAssignRecipe}
+        showDragPanel={showDragPanel}
       />
 
       {/* Recipe picker modal */}

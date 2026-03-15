@@ -1,5 +1,7 @@
-import { Plus, X } from 'lucide-react'
+import { useDroppable } from '@dnd-kit/core'
+import { Plus, X, RefreshCw } from 'lucide-react'
 import { cn } from '@/shared/lib/cn'
+import { Skeleton } from '@/shared/ui/Skeleton'
 import type { MealAssignment } from '@/features/meals/api/types'
 
 interface CalendarCellProps {
@@ -9,17 +11,51 @@ interface CalendarCellProps {
   meal: MealAssignment | null
   onAddClick: () => void
   onRemove: () => void
+  onRegenerate?: () => void
+  isGenerating?: boolean
 }
 
 export function CalendarCell({
+  dayIndex,
+  slotId,
   slotName,
   meal,
   onAddClick,
   onRemove,
+  onRegenerate,
+  isGenerating,
 }: CalendarCellProps) {
+  const { setNodeRef, isOver } = useDroppable({
+    id: `cell-${dayIndex}-${slotId}`,
+    data: { dayIndex, slotId },
+  })
+
+  if (isGenerating) {
+    return (
+      <div
+        ref={setNodeRef}
+        className="min-h-[80px] rounded-lg border border-white/10 p-2 flex flex-col gap-2"
+      >
+        <span className="text-xs text-white/30 md:hidden mb-1">
+          {slotName}
+        </span>
+        <Skeleton variant="rectangular" width="100%" height={36} />
+        <Skeleton width="70%" />
+      </div>
+    )
+  }
+
   if (!meal) {
     return (
-      <div className="min-h-[80px] rounded-lg border border-white/10 p-2 flex flex-col items-center justify-center hover:bg-white/[0.04] transition-colors">
+      <div
+        ref={setNodeRef}
+        className={cn(
+          'min-h-[80px] rounded-lg border p-2 flex flex-col items-center justify-center hover:bg-white/[0.04] transition-colors',
+          isOver
+            ? 'border-accent bg-accent/10'
+            : 'border-white/10',
+        )}
+      >
         <span className="text-xs text-white/30 md:hidden mb-1">
           {slotName}
         </span>
@@ -35,7 +71,15 @@ export function CalendarCell({
   }
 
   return (
-    <div className="min-h-[80px] rounded-lg border border-white/10 p-2 hover:bg-white/[0.04] transition-colors relative group">
+    <div
+      ref={setNodeRef}
+      className={cn(
+        'min-h-[80px] rounded-lg border p-2 hover:bg-white/[0.04] transition-colors relative group',
+        isOver
+          ? 'border-accent bg-accent/10'
+          : 'border-white/10',
+      )}
+    >
       <span className="text-xs text-white/30 md:hidden mb-1 block">
         {slotName}
       </span>
@@ -46,6 +90,15 @@ export function CalendarCell({
       >
         <X className="h-3 w-3" />
       </button>
+      {meal.isGenerated && onRegenerate && (
+        <button
+          type="button"
+          onClick={onRegenerate}
+          className="absolute top-1 right-7 h-5 w-5 flex items-center justify-center rounded-full bg-white/10 text-white/40 hover:bg-accent/30 hover:text-accent opacity-0 group-hover:opacity-100 transition-all"
+        >
+          <RefreshCw className="h-3 w-3" />
+        </button>
+      )}
       <div className="flex items-start gap-2">
         {meal.recipe.imageUrl ? (
           <img
