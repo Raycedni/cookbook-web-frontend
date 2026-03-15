@@ -1,23 +1,13 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { ShoppingCart } from 'lucide-react'
-import { EmptyState } from '@/shared/ui/EmptyState'
+import { ShoppingListPage } from '@/features/meals/ui/ShoppingListPage'
 
 export const Route = createFileRoute(
   '/_authenticated/meal-plans/$planId/shopping',
 )({
-  component: ShoppingListPage,
+  component: ShoppingListRoute,
 })
 
-function ShoppingListPage() {
+function ShoppingListRoute() {
   const { planId } = Route.useParams()
-
-  return (
-    <div className="space-y-4">
-      <EmptyState
-        icon={ShoppingCart}
-        title={`Shopping List for ${planId}`}
-        description="Your aggregated shopping list will appear here."
-      />
-    </div>
-  )
+  return <ShoppingListPage planId={planId} />
 }
