@@ -81,9 +81,10 @@ describe('ImageDropZone', () => {
     const dropzone = screen.getByTestId('dropzone')
 
     fireEvent.dragOver(dropzone, { dataTransfer: { types: ['Files'] } })
-    expect(dropzone.className).toMatch(/border-accent/)
+    expect(dropzone.className).toContain('border-accent bg-accent/10')
 
     fireEvent.dragLeave(dropzone)
-    expect(dropzone.className).not.toMatch(/border-accent/)
+    expect(dropzone.className).toContain('border-white/20')
+    expect(dropzone.className).not.toContain('bg-accent/10')
   })
 })
