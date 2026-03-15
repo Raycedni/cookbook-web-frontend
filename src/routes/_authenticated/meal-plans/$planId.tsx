@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
 import { createFileRoute, Link } from '@tanstack/react-router'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import {
@@ -6,6 +6,7 @@ import {
   Pencil,
   Settings2,
   Sparkles,
+  RefreshCw,
   ShoppingCart,
   Users,
   ChevronDown,
@@ -15,15 +16,18 @@ import {
 } from 'lucide-react'
 import { Skeleton } from '@/shared/ui/Skeleton'
 import { GlassPanel } from '@/shared/ui/GlassPanel'
+import { useDelayedLoading } from '@/shared/ui/useDelayedLoading'
 import { mealPlanQueries } from '@/features/meals/api/meal-plan-queries'
 import {
   assignMeal,
+  generateMeals,
   removeMeal,
   updateMealPlan,
 } from '@/features/meals/api/meal-plan-api'
 import { WeeklyCalendar } from '@/features/meals/ui/WeeklyCalendar'
 import { MealSlotManager } from '@/features/meals/ui/MealSlotManager'
 import { RecipePickerModal } from '@/features/meals/ui/RecipePickerModal'
+import { AutoFillModal } from '@/features/meals/ui/AutoFillModal'
 import type { RecipeSummary } from '@/features/recipes/api/types'
 import type { UpdateMealPlanRequest } from '@/features/meals/api/types'
 
@@ -53,6 +57,15 @@ function MealPlanDetailPage() {
   const [showSlotManager, setShowSlotManager] = useState(false)
   const [showEditForm, setShowEditForm] = useState(false)
   const [showDragPanel, setShowDragPanel] = useState(false)
+  const [showAutoFill, setShowAutoFill] = useState(false)
+  const [generatingSlotIds, setGeneratingSlotIds] = useState<string[]>([])
+  const [isGenerating, setIsGenerating] = useState(false)
+
+  // Delayed loading for skeleton shimmer during generation
+  const showGenerationSkeletons = useDelayedLoading(isGenerating, {
+    delay: 200,
+    minDisplay: 500,
+  })
 
   // Edit form state
   const [editName, setEditName] = useState('')
@@ -80,6 +93,32 @@ function MealPlanDetailPage() {
     },
   })
 
+  // Per-slot regeneration mutation
+  const regenSlotMutation = useMutation({
+    mutationFn: (slotId: string) => {
+      const prefs = plan?.generatePreferences
+      return generateMeals(planId, {
+        preferences: {
+          mealSlotIds: [slotId],
+          tagIds: prefs?.tagIds ?? [],
+          favoritesOnly: prefs?.favoritesOnly ?? false,
+          maxCookTimeMinutes: prefs?.maxCookTimeMinutes ?? null,
+          fillMode: 'replace_all',
+          maxRepeats: prefs?.maxRepeats ?? 2,
+        },
+      })
+    },
+    onMutate: (slotId) => {
+      setGeneratingSlotIds((prev) => [...prev, slotId])
+      setIsGenerating(true)
+    },
+    onSuccess: invalidateDetail,
+    onSettled: (_data, _error, slotId) => {
+      setGeneratingSlotIds((prev) => prev.filter((id) => id !== slotId))
+      setIsGenerating(false)
+    },
+  })
+
   const handleSelectRecipe = (recipe: RecipeSummary) => {
     if (!pickerTarget) return
     assignMutation.mutate({
@@ -97,6 +136,14 @@ function MealPlanDetailPage() {
       recipeId,
     })
   }
+
+  const handleGenerating = useCallback(
+    (slotIds: string[], isPending: boolean) => {
+      setGeneratingSlotIds(isPending ? slotIds : [])
+      setIsGenerating(isPending)
+    },
+    [],
+  )
 
   const handleOpenEdit = () => {
     if (!plan) return
@@ -133,6 +180,8 @@ function MealPlanDetailPage() {
       </GlassPanel>
     )
   }
+
+  const hasExistingPreferences = !!plan.generatePreferences
 
   return (
     <div className="space-y-4">
@@ -185,12 +234,22 @@ function MealPlanDetailPage() {
           </button>
           <button
             type="button"
-            disabled
-            className="inline-flex items-center gap-1.5 rounded-lg bg-white/10 px-3 py-1.5 text-sm text-white/40 cursor-not-allowed"
+            onClick={() => setShowAutoFill(true)}
+            className="inline-flex items-center gap-1.5 rounded-lg bg-accent/20 px-3 py-1.5 text-sm font-medium text-accent hover:bg-accent/30 transition-colors"
           >
             <Sparkles className="h-3.5 w-3.5" />
             Auto-fill
           </button>
+          {hasExistingPreferences && (
+            <button
+              type="button"
+              onClick={() => setShowAutoFill(true)}
+              className="inline-flex items-center gap-1.5 rounded-lg bg-white/10 px-3 py-1.5 text-sm text-white/70 hover:bg-white/15 transition-colors"
+            >
+              <RefreshCw className="h-3.5 w-3.5" />
+              Regenerate
+            </button>
+          )}
           <Link
             to="/meal-plans/$planId/shopping"
             params={{ planId }}
@@ -257,6 +316,10 @@ function MealPlanDetailPage() {
         }
         onRemoveMeal={(mealId) => removeMutation.mutate(mealId)}
         onAssignRecipe={handleAssignRecipe}
+        onRegenerate={(slotId) => regenSlotMutation.mutate(slotId)}
+        generatingSlotIds={
+          showGenerationSkeletons ? generatingSlotIds : undefined
+        }
         showDragPanel={showDragPanel}
       />
 
@@ -265,6 +328,15 @@ function MealPlanDetailPage() {
         isOpen={pickerTarget !== null}
         onClose={() => setPickerTarget(null)}
         onSelect={handleSelectRecipe}
+      />
+
+      {/* Auto-fill modal */}
+      <AutoFillModal
+        isOpen={showAutoFill}
+        onClose={() => setShowAutoFill(false)}
+        planId={planId}
+        plan={plan}
+        onGenerating={handleGenerating}
       />
     </div>
   )
