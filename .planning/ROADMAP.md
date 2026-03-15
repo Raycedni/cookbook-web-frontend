@@ -71,7 +71,7 @@ Plans:
 - [ ] 03-03-PLAN.md -- Edit/delete on detail page, share modal, public shared recipe route
 
 ### Phase 4: Meal Planning and Shopping
-**Goal**: Users can plan meals across a week, auto-generate plans, and produce aggregated shopping lists
+**Goal**: Users can plan meals across a week using a CSS grid calendar, auto-generate plans with preferences, and produce aggregated shopping lists with cost estimation
 **Depends on**: Phase 3
 **Requirements**: MEAL-01, MEAL-02, MEAL-03, MEAL-04, MEAL-05, MEAL-06, MEAL-07, SHOP-01, SHOP-02, SHOP-03
 **Success Criteria** (what must be TRUE):
@@ -79,11 +79,14 @@ Plans:
   2. User can view plans in a weekly/calendar layout, add recipes to meal slots, and remove meals from a plan
   3. User can auto-generate a meal plan with preference parameters and review the result
   4. User can generate a shopping list from a meal plan that aggregates ingredients by category, and check off items
-**Plans**: TBD
+**Plans**: 5 plans
 
 Plans:
-- [ ] 04-01: TBD
-- [ ] 04-02: TBD
+- [ ] 04-01-PLAN.md -- Types, API functions, query factory, route scaffolds, nav updates
+- [ ] 04-02-PLAN.md -- Meal plan list page, create/edit form, delete functionality
+- [ ] 04-03-PLAN.md -- Weekly calendar grid, recipe picker modal, meal slot management
+- [ ] 04-04-PLAN.md -- Drag-and-drop recipe assignment, auto-generate with preferences
+- [ ] 04-05-PLAN.md -- Shopping list page with category grouping, cost estimation, check-off
 
 ### Phase 5: Administration
 **Goal**: Admin users can manage all system-level configuration and content through a dedicated panel
@@ -109,5 +112,5 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 | 1. Foundation and Authentication | 3/3 | Complete |  |
 | 2. Recipe Browsing, Ratings, and Profiles | 4/4 | Complete |  |
 | 3. Recipe Management | 3/3 | Complete | 2026-03-15 |
-| 4. Meal Planning and Shopping | 0/2 | Not started | - |
+| 4. Meal Planning and Shopping | 0/5 | Not started | - |
 | 5. Administration | 0/2 | Not started | - |
