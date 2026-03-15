@@ -1,8 +1,9 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import { X } from 'lucide-react'
 import { GlassPanel } from '@/shared/ui/GlassPanel'
 import { useDebounce } from '@/shared/hooks/useDebounce'
 import { cn } from '@/shared/lib/cn'
+import { apiClient } from '@/shared/api/client'
 import type { Tag, TagNode } from '@/features/recipes/api/types'
 
 function getDescendantIds(roots: TagNode[], sourceId: number): Set<number> {
@@ -66,6 +67,37 @@ export function TagMergeModal({
   }, [allTags, sourceTag.id, descendantIds, debouncedSearch])
 
   const selectedTarget = allTags.find((t) => t.id === selectedTargetId)
+
+  // Attempt to fetch affected recipe count (graceful fallback if endpoint doesn't exist)
+  const [recipeCount, setRecipeCount] = useState<number | null>(null)
+  const [loadingCount, setLoadingCount] = useState(false)
+
+  useEffect(() => {
+    if (selectedTargetId === null) {
+      setRecipeCount(null)
+      return
+    }
+    let cancelled = false
+    setLoadingCount(true)
+    apiClient
+      .get(
+        `admin/tags/${sourceTag.id}/merge-preview?targetId=${selectedTargetId}`,
+      )
+      .json<{ recipeCount: number }>()
+      .then((data) => {
+        if (!cancelled) setRecipeCount(data.recipeCount)
+      })
+      .catch(() => {
+        // Endpoint may not exist (404) -- graceful fallback, no count shown
+        if (!cancelled) setRecipeCount(null)
+      })
+      .finally(() => {
+        if (!cancelled) setLoadingCount(false)
+      })
+    return () => {
+      cancelled = true
+    }
+  }, [sourceTag.id, selectedTargetId])
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center">
@@ -138,6 +170,10 @@ export function TagMergeModal({
             This will move all recipes tagged &ldquo;{sourceTag.name}&rdquo; to
             &ldquo;{selectedTarget.name}&rdquo; and delete &ldquo;
             {sourceTag.name}&rdquo;.
+            {loadingCount && ' Loading affected recipes...'}
+            {recipeCount !== null &&
+              !loadingCount &&
+              ` Affects ${recipeCount} recipe${recipeCount !== 1 ? 's' : ''}.`}
           </p>
         )}
 
