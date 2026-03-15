@@ -1,6 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { Star } from 'lucide-react'
-import { EmptyState } from '@/shared/ui/EmptyState'
+import { CriteriaSection } from '@/features/admin/ui/CriteriaSection'
 
 export const Route = createFileRoute('/_authenticated/admin/rating-criteria')({
   component: AdminRatingCriteria,
@@ -8,10 +7,9 @@ export const Route = createFileRoute('/_authenticated/admin/rating-criteria')({
 
 function AdminRatingCriteria() {
   return (
-    <EmptyState
-      icon={Star}
-      title="Rating Criteria"
-      description="Rating criteria management coming soon."
-    />
+    <div className="space-y-6">
+      <h1 className="text-2xl font-bold text-white">Rating Criteria</h1>
+      <CriteriaSection />
+    </div>
   )
 }
