@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 03-01-PLAN.md
-last_updated: "2026-03-15T13:26:01.055Z"
-last_activity: 2026-03-15 -- Plan 03-01 executed (Recipe API foundation and ImageDropZone)
+stopped_at: Completed 03-02-PLAN.md
+last_updated: "2026-03-15T13:31:26.765Z"
+last_activity: 2026-03-15 -- Plan 03-02 executed (Recipe creation wizard with drag-and-drop)
 progress:
   total_phases: 5
   completed_phases: 2
   total_plans: 10
-  completed_plans: 8
-  percent: 80
+  completed_plans: 9
+  percent: 90
 ---
 
 # Project State
@@ -26,11 +26,11 @@ See: .planning/PROJECT.md (updated 2026-03-14)
 ## Current Position
 
 Phase: 3 of 5 (Recipe Management)
-Plan: 1 of 3 in current phase (Plan 01 complete)
+Plan: 2 of 3 in current phase (Plan 02 complete)
 Status: In Progress
-Last activity: 2026-03-15 -- Plan 03-01 executed (Recipe API foundation and ImageDropZone)
+Last activity: 2026-03-15 -- Plan 03-02 executed (Recipe creation wizard with drag-and-drop)
 
-Progress: [████████░░] 80%
+Progress: [█████████░] 90%
 
 ## Performance Metrics
 
@@ -53,6 +53,7 @@ Progress: [████████░░] 80%
 *Updated after each plan completion*
 | Phase 02 P03 | 13min | 2 tasks | 10 files |
 | Phase 03 P01 | 4min | 2 tasks | 6 files |
+| Phase 03 P02 | 4min | 2 tasks | 8 files |
 
 ## Accumulated Context
 
@@ -86,6 +87,8 @@ Recent decisions affecting current work:
 - [Phase 03]: Form row types use localId (crypto.randomUUID) as dnd-kit sortable keys
 - [Phase 03]: Image upload uses FormData body without Content-Type (ky auto-sets multipart boundary)
 - [Phase 03]: ImageDropZone filters by type.startsWith('image/') for safety
+- [Phase 03]: Used existing ingredient API (getIngredients with search) instead of adding searchIngredients to recipe-api
+- [Phase 03]: Separate DndContext per sortable list avoids nesting conflicts across wizard steps
 
 ### Pending Todos
 
@@ -99,6 +102,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-15T13:26:01.040Z
-Stopped at: Completed 03-01-PLAN.md
+Last session: 2026-03-15T13:31:26.750Z
+Stopped at: Completed 03-02-PLAN.md
 Resume file: None

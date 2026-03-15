@@ -40,11 +40,11 @@ Requirements for initial release. Each maps to roadmap phases.
 
 - [x] **RECIPE-01**: User can create a new recipe with title, description, servings, prep/cook times, ingredients, and steps
 - [x] **RECIPE-02**: User can add/remove/reorder ingredients in recipe form with amount, unit, and ingredient selection
-- [ ] **RECIPE-03**: User can add/remove/reorder cooking steps in recipe form
+- [x] **RECIPE-03**: User can add/remove/reorder cooking steps in recipe form
 - [x] **RECIPE-04**: User can upload images for a recipe with drag-and-drop and preview
 - [ ] **RECIPE-05**: User can edit their own recipes
 - [ ] **RECIPE-06**: User can delete their own recipes with confirmation
-- [ ] **RECIPE-07**: User can assign tags to recipes from available tag list
+- [x] **RECIPE-07**: User can assign tags to recipes from available tag list
 - [ ] **RECIPE-08**: User can share a recipe via generated link (share token)
 - [ ] **RECIPE-09**: Unauthenticated user can view a shared recipe via share link
 
@@ -170,11 +170,11 @@ Which phases cover which requirements. Updated during roadmap creation.
 | INGR-02 | Phase 2 | Complete |
 | RECIPE-01 | Phase 3 | Complete |
 | RECIPE-02 | Phase 3 | Complete |
-| RECIPE-03 | Phase 3 | Pending |
+| RECIPE-03 | Phase 3 | Complete |
 | RECIPE-04 | Phase 3 | Complete |
 | RECIPE-05 | Phase 3 | Pending |
 | RECIPE-06 | Phase 3 | Pending |
-| RECIPE-07 | Phase 3 | Pending |
+| RECIPE-07 | Phase 3 | Complete |
 | RECIPE-08 | Phase 3 | Pending |
 | RECIPE-09 | Phase 3 | Pending |
 | MEAL-01 | Phase 4 | Pending |
